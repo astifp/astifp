@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Ashoka Society for International Trade and Foreign Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #F2F2F2;
+        }
+
+        /* Navigation */
+        nav {
+            background: #0D366A;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        nav .logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .page-header {
+            background: #0D366A;
+            color: white;
+            padding: 120px 2rem 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Featured Article */
+        .featured-section {
+            padding: 60px 0;
+        }
+
+        .featured-label {
+            display: block;
+            background: white;
+            color: black;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .featured-article {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            transition: all 0.5s ease;
+        }
+
+        .featured-article.expanded {
+            grid-template-columns: 1fr;
+        }
+
+        .featured-article.expanded .featured-image {
+            display: none;
+        }
+
+        .full-article-content {
+            display: none;
+            padding: 2rem 0;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .featured-article.expanded .full-article-content {
+            display: block;
+        }
+
+        .featured-article.expanded .featured-content p:first-of-type {
+            display: none;
+        }
+
+        .featured-image {
+            height: 100%;
+            min-height: 400px;
+            background: #0D366A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-content h2 {
+            font-size: 2.2rem;
+            color: #0D366A;
+            margin-bottom: 1rem;
+        }
+
+        .featured-meta {
+            color: #999;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .featured-content p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #F2F2F2;
+            color: #0D366A;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #0D366A;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            transform: translateX(5px);
+        }
+
+        /* Articles Grid */
+        .articles-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #0D366A;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .article-image {
+            height: 250px;
+            background: #0D366A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-content h3 {
+            color: #0D366A;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-meta {
+            color: #999;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #F2F2F2;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #F2F2F2;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                min-height: 300px;
+            }
+
+            .featured-content {
+                padding: 2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="IMG.PNG" alt="ASITFP Logo">
+                ASITFP
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="updates.html">Updates</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Blogs</h1>
+        <p>Policy Briefs & Articles on global trade and foreign policy</p>
+    </div>
+
+    <!-- Featured Article -->
+    <section class="featured-section">
+        <div class="container">
+            <span class="featured-label">FEATURED</span>
+            <div class="featured-article" id="trade-agreements">
+                <div class="featured-image">📊</div>
+                <div class="featured-content">
+                    <h2>The Future of Global Trade Agreements</h2>
+                    <div class="featured-meta">March 15, 2024 • 8 min read</div>
+                    <div class="tags">
+                        <span class="tag">Trade Policy</span>
+                        <span class="tag">Multilateralism</span>
+                        <span class="tag">WTO</span>
+                    </div>
+                    <p>As the world emerges from the pandemic, the landscape of international trade is undergoing a fundamental transformation. This comprehensive analysis examines how multilateral trade frameworks are adapting to new challenges including supply chain resilience, digital trade, and climate considerations. We explore the evolving role of the WTO, the rise of mega-regional agreements, and what these shifts mean for developing economies in an increasingly fragmented global trading system.</p>
+                    <div class="full-article-content">
+                        <h3>The Post-Pandemic Trade Landscape</h3>
+                        <p>The COVID-19 pandemic exposed critical vulnerabilities in global supply chains and accelerated trends that were already reshaping international trade. Countries worldwide began reconsidering their approach to trade agreements, with a renewed focus on resilience over pure efficiency. The traditional model of just-in-time manufacturing and geographically dispersed supply chains came under scrutiny as nations grappled with shortages of essential goods.</p>
+                        
+                        <h3>The WTO's Evolving Role</h3>
+                        <p>The World Trade Organization faces perhaps its greatest challenge since its creation in 1995. With its appellate body paralyzed and member states increasingly pursuing bilateral and regional agreements, questions about the organization's relevance have intensified. However, recent ministerial conferences have shown signs of renewed cooperation, particularly in areas like fisheries subsidies and digital trade. The organization is adapting, focusing on facilitating dialogue and providing a framework for smaller, plurilateral agreements rather than seeking comprehensive multilateral deals.</p>
+                        
+                        <h3>Rise of Mega-Regional Agreements</h3>
+                        <p>While the WTO struggles, mega-regional trade agreements like the RCEP (Regional Comprehensive Economic Partnership) and the renegotiated USMCA have emerged as the new frontier of trade policy. These agreements go beyond traditional tariff reductions to address 21st-century issues like digital trade, data flows, and regulatory harmonization. They represent a shift toward deeper integration among smaller groups of countries, potentially creating a more fragmented but also more dynamic global trading system.</p>
+                        
+                        <h3>Implications for Developing Economies</h3>
+                        <p>For developing nations, this new trade landscape presents both opportunities and challenges. On one hand, regional agreements can provide preferential access to major markets and support for capacity building. On the other, the increasingly complex web of trade rules and the high standards required by modern agreements can create barriers to entry. The future of trade policy will likely depend on finding ways to balance the push for higher standards with the need for inclusive growth that doesn't leave the poorest countries behind.</p>
+                    </div>
+                    <a onclick="toggleArticle('trade-agreements')" class="read-more">Read Full Article →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Articles -->
+    <section class="articles-section">
+        <div class="container">
+            <h2 class="section-title">All Articles</h2>
+            <div class="articles-grid">
+                
+                <!-- Article 2 -->
+                <div class="article-card" id="digital-diplomacy">
+                    <div class="article-image">💻</div>
+                    <div class="article-content">
+                        <h3>Digital Diplomacy in the 21st Century</h3>
+                        <div class="article-meta">March 10, 2024 • 6 min read</div>
+                        <div class="tags">
+                            <span class="tag">Diplomacy</span>
+                            <span class="tag">Technology</span>
+                            <span class="tag">Soft Power</span>
+                        </div>
+                        <p>The digital revolution has fundamentally altered how nations conduct diplomacy. From social media campaigns to cyber negotiations, technology is reshaping international relations. This article explores how governments are leveraging digital platforms for public diplomacy, the challenges of misinformation, and the emergence of tech diplomacy as a critical skill for modern foreign service officers.</p>
+                        <div class="full-article-content">
+                            <h3>The Social Media Revolution in Diplomacy</h3>
+                            <p>Traditional diplomatic channels have been supplemented—and sometimes supplanted—by direct communication through social media platforms. Foreign ministers now tweet policy positions, ambassadors engage with citizens on Instagram, and governments use TikTok for public diplomacy. This democratization of diplomatic communication has made foreign policy more transparent but also more vulnerable to misinformation and rapid escalation of tensions.</p>
+                            
+                            <h3>Cyber Diplomacy and Digital Governance</h3>
+                            <p>As cyberspace becomes a critical domain of international relations, nations are developing new diplomatic frameworks to address cyber threats, establish norms for state behavior online, and negotiate issues like data sovereignty and internet governance. Tech diplomacy has emerged as a specialized field, requiring diplomats to understand not just international relations but also the technical aspects of digital infrastructure and cybersecurity.</p>
+                        </div>
+                        <a onclick="toggleArticle('digital-diplomacy')" class="read-more">Read Full Article →</a>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="article-card" id="economic-sanctions">
+                    <div class="article-image">🌐</div>
+                    <div class="article-content">
+                        <h3>Economic Sanctions: Effectiveness and Implications</h3>
+                        <div class="article-meta">March 5, 2024 • 10 min read</div>
+                        <div class="tags">
+                            <span class="tag">Sanctions</span>
+                            <span class="tag">Geopolitics</span>
+                            <span class="tag">International Law</span>
+                        </div>
+                        <p>Economic sanctions have become a primary tool of foreign policy, but their effectiveness remains hotly debated. This comprehensive study analyzes recent sanctions regimes, their humanitarian impact, and unintended consequences. We examine case studies from Russia, Iran, and North Korea to understand when sanctions work, when they fail, and what alternatives might exist for achieving foreign policy objectives.</p>
+                        <div class="full-article-content">
+                            <h3>The Mechanics of Modern Sanctions</h3>
+                            <p>Today's sanctions regimes are increasingly sophisticated, targeting specific individuals, entities, and sectors rather than entire economies. Smart sanctions aim to minimize humanitarian impact while maximizing pressure on decision-makers. However, the complexity of global financial systems means that even targeted sanctions can have widespread effects, and enforcement challenges remain significant.</p>
+                            
+                            <h3>Case Studies: Success and Failure</h3>
+                            <p>The effectiveness of sanctions varies dramatically depending on the target country's economic structure, political system, and available alternatives. While sanctions contributed to Iran's return to nuclear negotiations, they have failed to change North Korea's behavior. The unprecedented sanctions on Russia following the Ukraine invasion represent the most ambitious attempt yet to use economic pressure to alter a major power's strategic decisions.</p>
+                        </div>
+                        <a onclick="toggleArticle('economic-sanctions')" class="read-more">Read Full Article →</a>
+                    </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="article-card" id="economic-nationalism">
+                    <div class="article-image">🏛️</div>
+                    <div class="article-content">
+                        <h3>The Rise of Economic Nationalism</h3>
+                        <div class="article-meta">February 28, 2024 • 7 min read</div>
+                        <div class="tags">
+                            <span class="tag">Protectionism</span>
+                            <span class="tag">Nationalism</span>
+                            <span class="tag">Global Economy</span>
+                        </div>
+                        <p>From "America First" to "Atmanirbhar Bharat," economic nationalism is reshaping global trade patterns. This article investigates the drivers behind this trend, including concerns over job losses, national security, and supply chain vulnerabilities. We analyze the tension between globalization and sovereignty, and what the resurgence of protectionist policies means for international cooperation and economic growth.</p>
+                        <div class="full-article-content">
+                            <h3>The Drivers of Economic Nationalism</h3>
+                            <p>The rise of economic nationalism reflects deep anxieties about globalization's distributional effects. While trade has created aggregate gains, the benefits have been unevenly distributed, creating political pressure for protectionist policies. National security concerns, particularly regarding critical technologies and supply chains, have added a strategic dimension to what was once primarily an economic debate.</p>
+                            
+                            <h3>The Future of Globalization</h3>
+                            <p>Rather than a wholesale rejection of globalization, we are witnessing its reconfiguration. The future may involve more regionalized supply chains, greater emphasis on strategic autonomy in key sectors, and a rebalancing of efficiency and resilience. The challenge for policymakers is managing this transition without triggering a destructive spiral of protectionism that would harm all countries' long-term prosperity.</p>
+                        </div>
+                        <a onclick="toggleArticle('economic-nationalism')" class="read-more">Read Full Article →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ashoka Society</h3>
+                    <p>Advancing understanding of international trade and foreign policy through research, discussion, and engagement.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="updates.html">Updates</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Policy Briefs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Ashoka University<br>Sonipat, Haryana</p>
+                    <p>Email: asitfp@ashoka.edu.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ashoka Society for International Trade and Foreign Policy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleArticle(articleId) {
+            const article = document.getElementById(articleId);
+            const readMoreLink = article.querySelector('.read-more');
+            
+            if (article.classList.contains('expanded')) {
+                article.classList.remove('expanded');
+                readMoreLink.textContent = 'Read Full Article →';
+                // Scroll to the article
+                article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                article.classList.add('expanded');
+                readMoreLink.textContent = 'Show Less ←';
+            }
+        }
+    </script>
+</body>
+</html>
