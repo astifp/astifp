@@ -140,6 +140,12 @@
             line-height: 1.8;
         }
 
+        .full-article-content h3 {
+            color: #0D366A;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
         .featured-article.expanded .full-article-content {
             display: block;
         }
@@ -205,6 +211,7 @@
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .read-more:hover {
@@ -241,6 +248,23 @@
         .article-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Expanded state for article cards */
+        .article-card.expanded {
+            grid-column: 1 / -1;
+        }
+
+        .article-card.expanded .article-image {
+            display: none;
+        }
+
+        .article-card.expanded .full-article-content {
+            display: block;
+        }
+
+        .article-card.expanded .article-content > p {
+            display: none;
         }
 
         .article-image {
@@ -447,17 +471,14 @@
                         </div>
                         <p>Economic sanctions have become a primary tool of foreign policy, but their effectiveness remains hotly debated. This comprehensive study analyzes recent sanctions regimes, their humanitarian impact, and unintended consequences. We examine case studies from Russia, Iran, and North Korea to understand when sanctions work, when they fail, and what alternatives might exist for achieving foreign policy objectives.</p>
                         <div class="full-article-content">
-                        <h3>The Post-Pandemic Trade Landscape</h3>
-                        <p>The COVID-19 pandemic exposed critical vulnerabilities in global supply chains and accelerated trends that were already reshaping international trade. Countries worldwide began reconsidering their approach to trade agreements, with a renewed focus on resilience over pure efficiency. The traditional model of just-in-time manufacturing and geographically dispersed supply chains came under scrutiny as nations grappled with shortages of essential goods.</p>
-                        
-                        <h3>The WTO's Evolving Role</h3>
-                        <p>The World Trade Organization faces perhaps its greatest challenge since its creation in 1995. With its appellate body paralyzed and member states increasingly pursuing bilateral and regional agreements, questions about the organization's relevance have intensified. However, recent ministerial conferences have shown signs of renewed cooperation, particularly in areas like fisheries subsidies and digital trade. The organization is adapting, focusing on facilitating dialogue and providing a framework for smaller, plurilateral agreements rather than seeking comprehensive multilateral deals.</p>
-                        
-                        <h3>Rise of Mega-Regional Agreements</h3>
-                        <p>While the WTO struggles, mega-regional trade agreements like the RCEP (Regional Comprehensive Economic Partnership) and the renegotiated USMCA have emerged as the new frontier of trade policy. These agreements go beyond traditional tariff reductions to address 21st-century issues like digital trade, data flows, and regulatory harmonization. They represent a shift toward deeper integration among smaller groups of countries, potentially creating a more fragmented but also more dynamic global trading system.</p>
-                        
-                        <h3>Implications for Developing Economies</h3>
-                        <p>For developing nations, this new trade landscape presents both opportunities and challenges. On one hand, regional agreements can provide preferential access to major markets
+                            <h3>Understanding Sanctions Mechanisms</h3>
+                            <p>Economic sanctions come in many forms, from comprehensive trade embargoes to targeted sanctions against specific individuals or entities. The evolution of sanctions policy has moved toward "smart sanctions" that aim to minimize humanitarian impact while maximizing pressure on decision-makers. However, even targeted sanctions can have broad economic effects, particularly in interconnected global financial systems.</p>
+                            
+                            <h3>Case Studies and Effectiveness</h3>
+                            <p>Recent sanctions regimes against Russia, Iran, and North Korea provide contrasting lessons about effectiveness. While sanctions on Russia have had significant economic impact, they have not achieved all stated policy objectives. Iranian sanctions led to negotiation of the JCPOA, though its ultimate success remains uncertain. North Korean sanctions demonstrate the limits of economic pressure when a regime is willing to impose extreme hardship on its population.</p>
+                            
+                            <h3>Humanitarian Considerations</h3>
+                            <p>One of the most challenging aspects of sanctions policy is balancing pressure on regimes with humanitarian concerns. Even well-designed sanctions can have unintended consequences for civilian populations, including reduced access to medicine, food, and essential goods. The international community continues to grapple with how to maximize political effectiveness while minimizing harm to innocent populations.</p>
                         </div>
                         <a onclick="toggleArticle('economic-sanctions')" class="read-more">Read Full Article →</a>
                     </div>
@@ -479,19 +500,11 @@
                             <h3>The Drivers of Economic Nationalism</h3>
                             <p>The rise of economic nationalism reflects deep anxieties about globalization's distributional effects. While trade has created aggregate gains, the benefits have been unevenly distributed, creating political pressure for protectionist policies. National security concerns, particularly regarding critical technologies and supply chains, have added a strategic dimension to what was once primarily an economic debate.</p>
                             
+                            <h3>Policy Manifestations</h3>
+                            <p>Economic nationalism manifests in various policy forms: tariffs and trade barriers, local content requirements, restrictions on foreign investment, and industrial policies favoring domestic producers. Countries are increasingly willing to accept economic costs in pursuit of strategic autonomy, particularly in sectors deemed critical to national security or economic competitiveness.</p>
+                            
                             <h3>The Future of Globalization</h3>
                             <p>Rather than a wholesale rejection of globalization, we are witnessing its reconfiguration. The future may involve more regionalized supply chains, greater emphasis on strategic autonomy in key sectors, and a rebalancing of efficiency and resilience. The challenge for policymakers is managing this transition without triggering a destructive spiral of protectionism that would harm all countries' long-term prosperity.</p>
-                        <h3>The Post-Pandemic Trade Landscape</h3>
-                        <p>The COVID-19 pandemic exposed critical vulnerabilities in global supply chains and accelerated trends that were already reshaping international trade. Countries worldwide began reconsidering their approach to trade agreements, with a renewed focus on resilience over pure efficiency. The traditional model of just-in-time manufacturing and geographically dispersed supply chains came under scrutiny as nations grappled with shortages of essential goods.</p>
-                        
-                        <h3>The WTO's Evolving Role</h3>
-                        <p>The World Trade Organization faces perhaps its greatest challenge since its creation in 1995. With its appellate body paralyzed and member states increasingly pursuing bilateral and regional agreements, questions about the organization's relevance have intensified. However, recent ministerial conferences have shown signs of renewed cooperation, particularly in areas like fisheries subsidies and digital trade. The organization is adapting, focusing on facilitating dialogue and providing a framework for smaller, plurilateral agreements rather than seeking comprehensive multilateral deals.</p>
-                        
-                        <h3>Rise of Mega-Regional Agreements</h3>
-                        <p>While the WTO struggles, mega-regional trade agreements like the RCEP (Regional Comprehensive Economic Partnership) and the renegotiated USMCA have emerged as the new frontier of trade policy. These agreements go beyond traditional tariff reductions to address 21st-century issues like digital trade, data flows, and regulatory harmonization. They represent a shift toward deeper integration among smaller groups of countries, potentially creating a more fragmented but also more dynamic global trading system.</p>
-                        
-                        <h3>Implications for Developing Economies</h3>
-                        <p>For developing nations, this new trade landscape presents both opportunities and challenges.
                         </div>
                         <a onclick="toggleArticle('economic-nationalism')" class="read-more">Read Full Article →</a>
                     </div>
