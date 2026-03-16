@@ -97,137 +97,9 @@
             opacity: 0.9;
         }
 
-        /* Featured Article */
-        .featured-section {
-            padding: 60px 0;
-        }
-
-        .featured-label {
-            display: block;
-            background: white;
-            color: black;
-            padding: 0.5rem 1.5rem;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-            text-align: center;
-        }
-
-        .featured-article {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            transition: all 0.5s ease;
-        }
-
-        .featured-article.expanded {
-            grid-template-columns: 1fr;
-        }
-
-        .featured-article.expanded .featured-image {
-            display: none;
-        }
-
-        .full-article-content {
-            display: none;
-            padding: 2rem 0;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .full-article-content h3 {
-            color: #0D366A;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .featured-article.expanded .full-article-content {
-            display: block;
-        }
-
-        .featured-article.expanded .featured-content p:first-of-type {
-            display: none;
-        }
-
-        .featured-image {
-            height: 100%;
-            min-height: 400px;
-            background: #0D366A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-        }
-
-        .featured-content {
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .featured-content h2 {
-            font-size: 2.2rem;
-            color: #0D366A;
-            margin-bottom: 1rem;
-        }
-
-        .featured-meta {
-            color: #999;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .featured-content p {
-            color: #666;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            background: #F2F2F2;
-            color: #0D366A;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .read-more {
-            display: inline-block;
-            color: #0D366A;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .read-more:hover {
-            transform: translateX(5px);
-        }
-
-        /* Articles Grid */
+        /* Articles Section */
         .articles-section {
             padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: #0D366A;
-            margin-bottom: 3rem;
-            text-align: center;
         }
 
         .articles-grid {
@@ -268,13 +140,10 @@
         }
 
         .article-image {
-            height: 250px;
-            background: #0D366A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .article-content {
@@ -285,6 +154,7 @@
             color: #0D366A;
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
 
         .article-meta {
@@ -293,10 +163,103 @@
             margin-bottom: 1rem;
         }
 
-        .article-content p {
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #F2F2F2;
+            color: #0D366A;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .article-content > p {
             color: #666;
             margin-bottom: 1.5rem;
             line-height: 1.7;
+        }
+
+        .full-article-content {
+            display: none;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .full-article-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .full-article-content h4 {
+            color: #0D366A;
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .full-article-content em {
+            font-style: italic;
+            color: #555;
+        }
+
+        .references {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e5e5;
+        }
+
+        .references h5 {
+            color: #0D366A;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .references ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .references li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .references li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0D366A;
+        }
+
+        .references a {
+            color: #0D366A;
+            text-decoration: none;
+            word-wrap: break-word;
+        }
+
+        .references a:hover {
+            text-decoration: underline;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #0D366A;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            transform: translateX(5px);
         }
 
         /* Footer */
@@ -350,20 +313,12 @@
                 font-size: 2rem;
             }
 
-            .featured-article {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-image {
-                min-height: 300px;
-            }
-
-            .featured-content {
-                padding: 2rem;
-            }
-
             .articles-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .article-content {
+                padding: 1.5rem;
             }
 
             nav ul {
@@ -395,118 +350,82 @@
         <p>Policy Briefs & Articles on global trade and foreign policy</p>
     </div>
 
-    <!-- Featured Article -->
-    <section class="featured-section">
-        <div class="container">
-            <span class="featured-label">FEATURED</span>
-            <div class="featured-article" id="trade-agreements">
-                <div class="featured-image">📊</div>
-                <div class="featured-content">
-                    <h2>The Future of Global Trade Agreements</h2>
-                    <div class="featured-meta">March 15, 2024 • 8 min read</div>
-                    <div class="tags">
-                        <span class="tag">Trade Policy</span>
-                        <span class="tag">Multilateralism</span>
-                        <span class="tag">WTO</span>
-                    </div>
-                    <p>As the world emerges from the pandemic, the landscape of international trade is undergoing a fundamental transformation. This comprehensive analysis examines how multilateral trade frameworks are adapting to new challenges including supply chain resilience, digital trade, and climate considerations. We explore the evolving role of the WTO, the rise of mega-regional agreements, and what these shifts mean for developing economies in an increasingly fragmented global trading system.</p>
-                    <div class="full-article-content">
-                        <h3>The Post-Pandemic Trade Landscape</h3>
-                        <p>The COVID-19 pandemic exposed critical vulnerabilities in global supply chains and accelerated trends that were already reshaping international trade. Countries worldwide began reconsidering their approach to trade agreements, with a renewed focus on resilience over pure efficiency. The traditional model of just-in-time manufacturing and geographically dispersed supply chains came under scrutiny as nations grappled with shortages of essential goods.</p>
-                        
-                        <h3>The WTO's Evolving Role</h3>
-                        <p>The World Trade Organization faces perhaps its greatest challenge since its creation in 1995. With its appellate body paralyzed and member states increasingly pursuing bilateral and regional agreements, questions about the organization's relevance have intensified. However, recent ministerial conferences have shown signs of renewed cooperation, particularly in areas like fisheries subsidies and digital trade. The organization is adapting, focusing on facilitating dialogue and providing a framework for smaller, plurilateral agreements rather than seeking comprehensive multilateral deals.</p>
-                        
-                        <h3>Rise of Mega-Regional Agreements</h3>
-                        <p>While the WTO struggles, mega-regional trade agreements like the RCEP (Regional Comprehensive Economic Partnership) and the renegotiated USMCA have emerged as the new frontier of trade policy. These agreements go beyond traditional tariff reductions to address 21st-century issues like digital trade, data flows, and regulatory harmonization. They represent a shift toward deeper integration among smaller groups of countries, potentially creating a more fragmented but also more dynamic global trading system.</p>
-                        
-                        <h3>Implications for Developing Economies</h3>
-                        <p>For developing nations, this new trade landscape presents both opportunities and challenges. On one hand, regional agreements can provide preferential access to major markets and support for capacity building. On the other, the increasingly complex web of trade rules and the high standards required by modern agreements can create barriers to entry. The future of trade policy will likely depend on finding ways to balance the push for higher standards with the need for inclusive growth that doesn't leave the poorest countries behind.</p>
-                    </div>
-                    <a onclick="toggleArticle('trade-agreements')" class="read-more">Read Full Article →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- All Articles -->
     <section class="articles-section">
         <div class="container">
-            <h2 class="section-title">All Articles</h2>
             <div class="articles-grid">
                 
-                <!-- Article 2 -->
-                <div class="article-card" id="digital-diplomacy">
-                    <div class="article-image">💻</div>
+                <!-- Article 1 -->
+                <div class="article-card" id="madman-theory">
+                    <div class="article-image" style="background-image: url('article1.jpg');"></div>
                     <div class="article-content">
-                        <h3>Digital Diplomacy in the 21st Century</h3>
-                        <div class="article-meta">March 10, 2024 • 6 min read</div>
+                        <h3>The Quest for Equilibrium: Rationale in Irrationality</h3>
+                        <div class="article-meta">March 2025 • 12 min read</div>
                         <div class="tags">
-                            <span class="tag">Diplomacy</span>
-                            <span class="tag">Technology</span>
-                            <span class="tag">Soft Power</span>
+                            <span class="tag">Foreign Policy</span>
+                            <span class="tag">Game Theory</span>
+                            <span class="tag">US Politics</span>
                         </div>
-                        <p>The digital revolution has fundamentally altered how nations conduct diplomacy. From social media campaigns to cyber negotiations, technology is reshaping international relations. This article explores how governments are leveraging digital platforms for public diplomacy, the challenges of misinformation, and the emergence of tech diplomacy as a critical skill for modern foreign service officers.</p>
+                        <p>Following President Donald Trump's presidential victory in 2024, his foreign policy has proven to seem erratic to observers and analysts. Whether it be threatening to annex Canada and make it the 51st state of the United States, threats to annex Greenland, threats to limit or end support to Ukraine, or the trade war initiated by the Trump administration, it appears as irrational behaviour. This comprehensive analysis examines the madman theory and its application to contemporary international relations.</p>
+                        
                         <div class="full-article-content">
-                            <h3>The Social Media Revolution in Diplomacy</h3>
-                            <p>Traditional diplomatic channels have been supplemented—and sometimes supplanted—by direct communication through social media platforms. Foreign ministers now tweet policy positions, ambassadors engage with citizens on Instagram, and governments use TikTok for public diplomacy. This democratization of diplomatic communication has made foreign policy more transparent but also more vulnerable to misinformation and rapid escalation of tensions.</p>
-                            
-                            <h3>Cyber Diplomacy and Digital Governance</h3>
-                            <p>As cyberspace becomes a critical domain of international relations, nations are developing new diplomatic frameworks to address cyber threats, establish norms for state behavior online, and negotiate issues like data sovereignty and internet governance. Tech diplomacy has emerged as a specialized field, requiring diplomats to understand not just international relations but also the technical aspects of digital infrastructure and cybersecurity.</p>
-                        </div>
-                        <a onclick="toggleArticle('digital-diplomacy')" class="read-more">Read Full Article →</a>
-                    </div>
-                </div>
+                            <p>Following President Donald Trump's presidential victory in 2024, his foreign policy has proven to seem erratic to observers and analysts. Whether it be threatening to annex Canada and make it the 51st state of the United States, threats to annex Greenland, threats to limit or end support to Ukraine, or the trade war initiated by the Trump administration, it appears as irrational behaviour. Alienating and threatening close allies worsens their relations and threatens the World Order. During times of uncertainty in the international political system, could some semblance of rationality be found?</p>
 
-                <!-- Article 3 -->
-                <div class="article-card" id="economic-sanctions">
-                    <div class="article-image">🌐</div>
-                    <div class="article-content">
-                        <h3>Economic Sanctions: Effectiveness and Implications</h3>
-                        <div class="article-meta">March 5, 2024 • 10 min read</div>
-                        <div class="tags">
-                            <span class="tag">Sanctions</span>
-                            <span class="tag">Geopolitics</span>
-                            <span class="tag">International Law</span>
-                        </div>
-                        <p>Economic sanctions have become a primary tool of foreign policy, but their effectiveness remains hotly debated. This comprehensive study analyzes recent sanctions regimes, their humanitarian impact, and unintended consequences. We examine case studies from Russia, Iran, and North Korea to understand when sanctions work, when they fail, and what alternatives might exist for achieving foreign policy objectives.</p>
-                        <div class="full-article-content">
-                            <h3>Understanding Sanctions Mechanisms</h3>
-                            <p>Economic sanctions come in many forms, from comprehensive trade embargoes to targeted sanctions against specific individuals or entities. The evolution of sanctions policy has moved toward "smart sanctions" that aim to minimize humanitarian impact while maximizing pressure on decision-makers. However, even targeted sanctions can have broad economic effects, particularly in interconnected global financial systems.</p>
-                            
-                            <h3>Case Studies and Effectiveness</h3>
-                            <p>Recent sanctions regimes against Russia, Iran, and North Korea provide contrasting lessons about effectiveness. While sanctions on Russia have had significant economic impact, they have not achieved all stated policy objectives. Iranian sanctions led to negotiation of the JCPOA, though its ultimate success remains uncertain. North Korean sanctions demonstrate the limits of economic pressure when a regime is willing to impose extreme hardship on its population.</p>
-                            
-                            <h3>Humanitarian Considerations</h3>
-                            <p>One of the most challenging aspects of sanctions policy is balancing pressure on regimes with humanitarian concerns. Even well-designed sanctions can have unintended consequences for civilian populations, including reduced access to medicine, food, and essential goods. The international community continues to grapple with how to maximize political effectiveness while minimizing harm to innocent populations.</p>
-                        </div>
-                        <a onclick="toggleArticle('economic-sanctions')" class="read-more">Read Full Article →</a>
-                    </div>
-                </div>
+                            <p>In the international system, it is believed that the world is anarchical and that every state is a rational actor acting in its best interest. A state could, acting based on interests that need to be met, issue certain demands on other states or non-state actors. Such demands could be initiated through diplomacy and mutual agreements or through threats, which could include subterfuge.</p>
 
-                <!-- Article 4 -->
-                <div class="article-card" id="economic-nationalism">
-                    <div class="article-image">🏛️</div>
-                    <div class="article-content">
-                        <h3>The Rise of Economic Nationalism</h3>
-                        <div class="article-meta">February 28, 2024 • 7 min read</div>
-                        <div class="tags">
-                            <span class="tag">Protectionism</span>
-                            <span class="tag">Nationalism</span>
-                            <span class="tag">Global Economy</span>
+                            <p><em>It must be noted that here 'threats' are typically verbal, and not always armed.</em></p>
+
+                            <p>An actor could choose to either issue a threat or not. When a threat is not issued, the status quo between the states is maintained. In an ideal world, with rational actors, no unnecessary threat should be issued in the first place because issuing an unnecessary threat usually ends in the threatening-state not gaining much of a benefit because they would have to face consequences for deviating from international norms and rational behaviour.</p>
+
+                            <p>Further, issuing threats disturb economies, as investors and stakeholders become anxious due to newfound volatility in the market.</p>
+
+                            <p>To understand the following sequence, let us say that red refers to a state that issues a threat and blue refers to the state that is being threatened.</p>
+
+                            <p>If the red state decides to issue a threat, the blue state is put into a dilemma, and can make either of the two decisions: to succumb to the threat or to ignore the threat, resulting in an escalation. If the blue state chooses the former, then the red state, which issued the threat, is benefitted and is victorious in achieving its goal. On the other hand, if it chooses the latter, it escalates just by ignoring the verbal threat.</p>
+
+                            <p>Thus, the red state has to make a decision in response to the escalation and has two options: to punish the blue state for indirectly escalating or retreating by ignoring the escalation. Once a threat has been issued, it is up to the blue state to assess the credibility of the threat. Typically, one might assume that when a threat seems absurd, it is unlikely to be credible. Paradoxically, however, it is the irrationality of the threat that gives it credibility. This paradox becomes integral to the theory. In addition to its typically hegemonic status, if the red state is perceived to be truly mad, the blue state may succumb, as it is difficult to predict whether the red state will actually act on its threat.</p>
+
+                            <p>The blue state's best-case scenario is that the red state is simply employing a tactic of erratic nature to intimidate the blue state into coercion, in which case the blue state must recognise the threat as an act of intimidation without substantial plausibility and ignore the bluff.</p>
+
+                            <p>Its worst-case scenario, on the other hand, would be if it assesses the threat incorrectly and ignores the threat, resulting in an escalation, in which the aggressor-state actually acts upon its threat and punishes the blue state for escalating.</p>
+
+                            <p>In most cases, however, the state that issues the threat is not likely to actually follow through with its threat because the actor isn't actually rogue; they're simply pretending for the purpose of increased leverage to bargain. The threat is issued to project madness that attempts to intimidate the victim-state into succumbing to the threatening-state's demands. This is merely an imposture where a rational actor is acting irrationally. They cannot typically bear the consequences for the strategic aberration that they have made.</p>
+
+                            <p>The worst form of punishment that the red state could employ, in the case of an escalation, is the nuclear route. But in the age of Mutually Assured Destruction and the cataclysmic nature of a nuclear strike, the aggressor-state would also likely recognise its consequences and use its nuclear armada merely as a form of deterrence or a negotiating tool, as is the case with the madman theory.</p>
+
+                            <h4>Efficacy of the Madman Theory</h4>
+
+                            <p>To assess a threat's credibility, there are two aspects of strategic behaviour that could help: Understanding whether the state's use of erratic behaviour is dispositional or situational.</p>
+
+                            <p>If an actor's use of the madman theory is dispositional, it decreases the credibility of the threat. Madness is no longer volatile if its nature is dispositional because other actors would've understood the rogue state always pursues grand, erratic goals. This makes assessing the threat easier and increases other states' ability to navigate dealing with the rogue state. The actor may truly be irrational, rather than being a rational actor playing irrational.</p>
+
+                            <p>On the other hand, if its use is situational, it enables real volatility and makes assessing the threat even more difficult. Therefore, to effectively execute the madman theory, in most cases, situational implementation may be a more plausible use of the theory.</p>
+
+                            <p>Trump's use of the madman theory places greater emphasis on being tactical and perhaps lacking in grand strategy. Clearly, it is difficult to predict what he might do in the future, so it is difficult to discern what his grand strategy might be. But from what we have seen thus far, it does seem compelling to assume that, at the very least, his grand strategy is bizarre if not lacking, based on the way the US has been dealing with other states, particularly allies.</p>
+
+                            <p>Beyond just Trump, the administration itself may also suffer from a poor assessment of its grand strategy, as is made evident by the likes of Secretary of War (former Secretary of Defence), Pete Hegseth, who has consistently advocated for a doctrine of increased lethality without proper considerations for grand strategy.</p>
+
+                            <h4>Application to Trade Policy</h4>
+
+                            <p>In the case of trade, the madman theory can be applied to tariffs as well. When a state's producer produces a certain good and seeks to export it to another state's market, the importing state may tax the imported good in order to maintain their indigenous producers' competitive edge. This taxation is known as a tariff. If both states place tariffs on each other, their trade is limited and consumer goods' prices increase, as opposed to when they are able to import certain goods from each other for a cheaper price. Therefore, to avoid such inflation, countries maintain trade relations and engage in free trade and maintain a status quo. If, for some reason, one state seeks to coerce their trading partner into something, the state may disrupt the status quo, and issue a threat to place or raise tariffs on its trading partner unless it accepts the threatening state's demands. In such a scenario, the threatened state's exports would potentially take a hit and hurt its economy, and therefore, the state may either choose to take the hit or accept the demands.</p>
+
+                            <p>Such a scenario was visible with Trump's recent imposition of a 50% tariff on Indian goods, which may be seen as an example of erratic coercive behaviour. Though India is seen as an ally, India's continued trade with Russia following Russia's invasion of Ukraine is not taken kindly by the US, and they seek to minimize India's trade with Russia by punishing India with tariffs. Trump also seeks to extend America's agricultural and dairy industry's products to the Indian market, which India is hesitant of accepting due to impacts this may have on its large agricultural sector. Both states seek to protect their own markets, and in doing so, have strained their relationship. With greater cost sensitivity, India is left with little scope for choice. Negotiations seem to be taking place and other trade agreements are being made between both countries, but the tariffs persist, as of the writing of this article.</p>
+
+                            <h4>Conclusion</h4>
+
+                            <p>To conclude, if used in a situational manner, with a larger strategy in mind, based on calculations of other circumstances, the madman theory could be a credible negotiating tool in some instances. Without these factors, however, the theory runs into increased scrutiny. The lines between acting irrationally as a rational actor and actually being an irrational actor become blurry, but that is what threatened-states must decipher in order to navigate the international system.</p>
+
+                            <div class="references">
+                                <h5>Suggested Readings</h5>
+                                <ul>
+                                    <li><a href="https://journals.sagepub.com/doi/10.1177/20419058241238193" target="_blank">The Madman Theory: Evolution and Strategic Implications - SAGE Journals</a></li>
+                                    <li><a href="https://www.orfonline.org/expert-speak/thomas-schelling-golden-age-american-strategy" target="_blank">Thomas Schelling and the Golden Age of American Strategy - ORF</a></li>
+                                    <li><a href="https://www.stimson.org/2025/the-perils-of-lethality/" target="_blank">The Perils of Lethality - Stimson Center</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <p>From "America First" to "Atmanirbhar Bharat," economic nationalism is reshaping global trade patterns. This article investigates the drivers behind this trend, including concerns over job losses, national security, and supply chain vulnerabilities. We analyze the tension between globalization and sovereignty, and what the resurgence of protectionist policies means for international cooperation and economic growth.</p>
-                        <div class="full-article-content">
-                            <h3>The Drivers of Economic Nationalism</h3>
-                            <p>The rise of economic nationalism reflects deep anxieties about globalization's distributional effects. While trade has created aggregate gains, the benefits have been unevenly distributed, creating political pressure for protectionist policies. National security concerns, particularly regarding critical technologies and supply chains, have added a strategic dimension to what was once primarily an economic debate.</p>
-                            
-                            <h3>Policy Manifestations</h3>
-                            <p>Economic nationalism manifests in various policy forms: tariffs and trade barriers, local content requirements, restrictions on foreign investment, and industrial policies favoring domestic producers. Countries are increasingly willing to accept economic costs in pursuit of strategic autonomy, particularly in sectors deemed critical to national security or economic competitiveness.</p>
-                            
-                            <h3>The Future of Globalization</h3>
-                            <p>Rather than a wholesale rejection of globalization, we are witnessing its reconfiguration. The future may involve more regionalized supply chains, greater emphasis on strategic autonomy in key sectors, and a rebalancing of efficiency and resilience. The challenge for policymakers is managing this transition without triggering a destructive spiral of protectionism that would harm all countries' long-term prosperity.</p>
-                        </div>
-                        <a onclick="toggleArticle('economic-nationalism')" class="read-more">Read Full Article →</a>
+                        
+                        <a onclick="toggleArticle('madman-theory')" class="read-more">Read Full Article →</a>
                     </div>
                 </div>
 
@@ -525,10 +444,10 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="updates.html">Updates</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Policy Briefs</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
