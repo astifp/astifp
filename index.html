@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashoka Society for International Trade and Foreign Policy</title>
+    <title>The International Trade Journal - Ashoka Society for International Trade and Foreign Policy</title>
     <style>
         * {
             margin: 0;
@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
+            background: #F2F2F2;
         }
 
         /* Navigation */
@@ -42,6 +42,15 @@
             color: white;
             font-size: 1.3rem;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        nav .logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 5px;
         }
 
         nav ul {
@@ -63,87 +72,6 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
-        .hero {
-            background: #0D366A url('world.jpg') center/cover no-repeat;
-            background-blend-mode: overlay;
-            color: white;
-            padding: 150px 2rem 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(13, 54, 106, 0.85);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .logo-container {
-            margin-bottom: 2rem;
-            animation: fadeInDown 1s ease;
-        }
-
-        .logo-container img {
-            max-width: 250px;
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-container img:hover {
-            transform: scale(1.05);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease 0.2s both;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.4s both;
-            opacity: 0.95;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Container */
         .container {
             max-width: 1200px;
@@ -151,40 +79,32 @@
             padding: 0 2rem;
         }
 
-        /* Section Styles */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #0D366A;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
+        /* Header */
+        .page-header {
             background: #0D366A;
-            border-radius: 2px;
+            color: white;
+            padding: 120px 2rem 60px;
+            text-align: center;
         }
 
-        /* Featured Articles Grid */
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            padding: 60px 0;
+        }
+
         .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
@@ -193,181 +113,153 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         .article-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Expanded state for article cards */
+        .article-card.expanded {
+            grid-column: 1 / -1;
+        }
+
+        .article-card.expanded .article-image {
+            display: none;
+        }
+
+        .article-card.expanded .full-article-content {
+            display: block;
+        }
+
+        .article-card.expanded .article-content > p {
+            display: none;
         }
 
         .article-image {
-            height: 200px;
-            background: #0D366A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .article-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .article-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .article-content h3 {
             color: #0D366A;
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .article-content p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
         .article-meta {
-            display: flex;
-            justify-content: space-between;
             color: #999;
             font-size: 0.85rem;
-        }
-
-        /* Upcoming Events */
-        .events-list {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .event-card {
-            background: #0D366A;
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-
-        .event-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
-
-        .event-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .event-date {
-            background: rgba(255,255,255,0.3);
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: #0D366A;
-            color: white;
-            text-align: center;
-            border-radius: 20px;
-            padding: 60px 2rem;
-            margin: 0 2rem;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: white;
+        .tag {
+            background: #F2F2F2;
+            color: #0D366A;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .article-content > p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .full-article-content {
+            display: none;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .full-article-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .full-article-content h4 {
+            color: #0D366A;
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .full-article-content em {
+            font-style: italic;
+            color: #555;
+        }
+
+        .references {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e5e5;
+        }
+
+        .references h5 {
+            color: #0D366A;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .references ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .references li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .references li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0D366A;
+        }
+
+        .references a {
             color: #0D366A;
             text-decoration: none;
-            border-radius: 50px;
+            word-wrap: break-word;
+        }
+
+        .references a:hover {
+            text-decoration: underline;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #0D366A;
+            text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            background: #F2F2F2;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: #0D366A;
-        }
-
-        /* Social Buttons */
-        .social-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .social-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        .social-btn svg {
-            width: 30px;
-            height: 30px;
+        .read-more:hover {
+            transform: translateX(5px);
         }
 
         /* Footer */
@@ -417,24 +309,19 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
+            .page-header h1 {
                 font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
             }
 
             .articles-grid {
                 grid-template-columns: 1fr;
             }
 
-            .event-card {
-                flex-direction: column;
+            .article-content {
+                padding: 1.5rem;
+            }
+
+            nav ul {
                 gap: 1rem;
             }
         }
@@ -444,7 +331,10 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">ASITFP</div>
+            <div class="logo">
+                <img src="IMG.jpg" alt="ASITFP Logo">
+                ASITFP
+            </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Blog</a></li>
@@ -454,135 +344,97 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="logo-container">
-                <img src="IMG.jpg" alt="Ashoka Society Logo">
-            </div>
-            <h1>Shaping the Future of International Trade & Foreign Policy</h1>
-            <p>Join Ashoka University's premier society dedicated to exploring global trade dynamics, diplomatic relations, and foreign policy analysis through rigorous research and thoughtful discourse.</p>
-        </div>
-    </section>
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>The International Trade Journal</h1>
+        <p>Policy Briefs & Articles on global trade and foreign policy</p>
+    </div>
 
-    <!-- Featured Articles -->
-    <section id="articles">
+    <!-- All Articles -->
+    <section class="articles-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Featured Articles</h2>
-                <p>Dive into our latest research and analysis on global trade trends and foreign policy developments.</p>
-            </div>
             <div class="articles-grid">
-                <a href="blog.html#trade-agreements" style="text-decoration: none; color: inherit;">
-                    <div class="article-card">
-                        <div class="article-image">📊</div>
-                        <div class="article-content">
-                            <h3>The Future of Global Trade Agreements</h3>
-                            <p>Examining the evolution of multilateral trade frameworks in a post-pandemic world.</p>
-                            <div class="article-meta">
-                                <span>March 15, 2024</span>
-                                <span>8 min read</span>
-                            </div>
+                
+                <!-- Article 1 -->
+                <div class="article-card" id="madman-theory">
+                    <div class="article-image" style="background-image: url('article1.jpg');"></div>
+                    <div class="article-content">
+                        <h3>The Quest for Equilibrium: Rationale in Irrationality</h3>
+                        <div class="article-meta">By Fuad Mohammed Agha • March 2025 • 12 min read</div>
+                        <div class="tags">
+                            <span class="tag">Foreign Policy</span>
+                            <span class="tag">Game Theory</span>
+                            <span class="tag">US Politics</span>
                         </div>
-                    </div>
-                </a>
-                <a href="blog.html#digital-diplomacy" style="text-decoration: none; color: inherit;">
-                    <div class="article-card">
-                        <div class="article-image">💻</div>
-                        <div class="article-content">
-                            <h3>Digital Diplomacy in the 21st Century</h3>
-                            <p>How technology is reshaping international relations and diplomatic engagement.</p>
-                            <div class="article-meta">
-                                <span>March 10, 2024</span>
-                                <span>6 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="blog.html#economic-sanctions" style="text-decoration: none; color: inherit;">
-                    <div class="article-card">
-                        <div class="article-image">🌐</div>
-                        <div class="article-content">
-                            <h3>Economic Sanctions: Effectiveness and Implications</h3>
-                            <p>A comprehensive analysis of recent sanctions and their geopolitical impact.</p>
-                            <div class="article-meta">
-                                <span>March 5, 2024</span>
-                                <span>10 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div style="text-align: center;">
-                <a href="blog.html" class="btn">View All Articles</a>
-            </div>
-        </div>
-    </section>
+                        <p>Following President Donald Trump's presidential victory in 2024, his foreign policy has proven to seem erratic to observers and analysts. Whether it be threatening to annex Canada and make it the 51st state of the United States, threats to annex Greenland, threats to limit or end support to Ukraine, or the trade war initiated by the Trump administration, it appears as irrational behaviour. This comprehensive analysis examines the madman theory and its application to contemporary international relations.</p>
+                        
+                        <div class="full-article-content">
+                            <p>Following President Donald Trump's presidential victory in 2024, his foreign policy has proven to seem erratic to observers and analysts. Whether it be threatening to annex Canada and make it the 51st state of the United States, threats to annex Greenland, threats to limit or end support to Ukraine, or the trade war initiated by the Trump administration, it appears as irrational behaviour. Alienating and threatening close allies worsens their relations and threatens the World Order. During times of uncertainty in the international political system, could some semblance of rationality be found?</p>
 
-    <!-- Upcoming Events -->
-    <section id="events" style="background: #f8f9fa;">
-        <div class="container">
-            <div class="section-header">
-                <h2>Upcoming Events</h2>
-                <p>Join us for engaging discussions and insightful sessions</p>
-            </div>
-            <div class="events-list">
-                <div class="event-card">
-                    <div class="event-info">
-                        <h3>Policy Brief Workshop</h3>
-                        <p>Learn to write impactful policy briefs with industry experts</p>
-                    </div>
-                    <div class="event-date">
-                        <div style="font-size: 2rem;">25</div>
-                        <div>OCT 2025</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-info">
-                        <h3>Guest Lecture: Trade Wars & Tariffs</h3>
-                        <p>Expert insights on current global trade tensions</p>
-                    </div>
-                    <div class="event-date">
-                        <div style="font-size: 2rem;">02</div>
-                        <div>NOV 2025</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-info">
-                        <h3>Model UN Conference</h3>
-                        <p>Simulate international diplomacy and negotiate global issues</p>
-                    </div>
-                    <div class="event-date">
-                        <div style="font-size: 2rem;">15</div>
-                        <div>NOV 2025</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                            <p>In the international system, it is believed that the world is anarchical and that every state is a rational actor acting in its best interest. A state could, acting based on interests that need to be met, issue certain demands on other states or non-state actors. Such demands could be initiated through diplomacy and mutual agreements or through threats, which could include subterfuge.</p>
 
-    <!-- CTA Section -->
-    <section>
-        <div class="cta-section">
-            <h2>Join Our Community</h2>
-            <p>Connect with fellow students passionate about international affairs. Participate in discussions, attend events, and contribute to our research.</p>
-            <div class="social-buttons">
-                <a href="https://www.instagram.com/asitfp/" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <svg viewBox="0 0 24 24" fill="#0D366A">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/company/ashoka-society-for-international-trade-and-foreign-policy/" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <svg viewBox="0 0 24 24" fill="#0D366A">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
+                            <p><em>It must be noted that here 'threats' are typically verbal, and not always armed.</em></p>
+
+                            <p>An actor could choose to either issue a threat or not. When a threat is not issued, the status quo between the states is maintained. In an ideal world, with rational actors, no unnecessary threat should be issued in the first place because issuing an unnecessary threat usually ends in the threatening-state not gaining much of a benefit because they would have to face consequences for deviating from international norms and rational behaviour.</p>
+
+                            <p>Further, issuing threats disturb economies, as investors and stakeholders become anxious due to newfound volatility in the market.</p>
+
+                            <p>To understand the following sequence, let us say that red refers to a state that issues a threat and blue refers to the state that is being threatened.</p>
+
+                            <p>If the red state decides to issue a threat, the blue state is put into a dilemma, and can make either of the two decisions: to succumb to the threat or to ignore the threat, resulting in an escalation. If the blue state chooses the former, then the red state, which issued the threat, is benefitted and is victorious in achieving its goal. On the other hand, if it chooses the latter, it escalates just by ignoring the verbal threat.</p>
+
+                            <p>Thus, the red state has to make a decision in response to the escalation and has two options: to punish the blue state for indirectly escalating or retreating by ignoring the escalation. Once a threat has been issued, it is up to the blue state to assess the credibility of the threat. Typically, one might assume that when a threat seems absurd, it is unlikely to be credible. Paradoxically, however, it is the irrationality of the threat that gives it credibility. This paradox becomes integral to the theory. In addition to its typically hegemonic status, if the red state is perceived to be truly mad, the blue state may succumb, as it is difficult to predict whether the red state will actually act on its threat.</p>
+
+                            <p>The blue state's best-case scenario is that the red state is simply employing a tactic of erratic nature to intimidate the blue state into coercion, in which case the blue state must recognise the threat as an act of intimidation without substantial plausibility and ignore the bluff.</p>
+
+                            <p>Its worst-case scenario, on the other hand, would be if it assesses the threat incorrectly and ignores the threat, resulting in an escalation, in which the aggressor-state actually acts upon its threat and punishes the blue state for escalating.</p>
+
+                            <p>In most cases, however, the state that issues the threat is not likely to actually follow through with its threat because the actor isn't actually rogue; they're simply pretending for the purpose of increased leverage to bargain. The threat is issued to project madness that attempts to intimidate the victim-state into succumbing to the threatening-state's demands. This is merely an imposture where a rational actor is acting irrationally. They cannot typically bear the consequences for the strategic aberration that they have made.</p>
+
+                            <p>The worst form of punishment that the red state could employ, in the case of an escalation, is the nuclear route. But in the age of Mutually Assured Destruction and the cataclysmic nature of a nuclear strike, the aggressor-state would also likely recognise its consequences and use its nuclear armada merely as a form of deterrence or a negotiating tool, as is the case with the madman theory.</p>
+
+                            <h4>Efficacy of the Madman Theory</h4>
+
+                            <p>To assess a threat's credibility, there are two aspects of strategic behaviour that could help: Understanding whether the state's use of erratic behaviour is dispositional or situational.</p>
+
+                            <p>If an actor's use of the madman theory is dispositional, it decreases the credibility of the threat. Madness is no longer volatile if its nature is dispositional because other actors would've understood the rogue state always pursues grand, erratic goals. This makes assessing the threat easier and increases other states' ability to navigate dealing with the rogue state. The actor may truly be irrational, rather than being a rational actor playing irrational.</p>
+
+                            <p>On the other hand, if its use is situational, it enables real volatility and makes assessing the threat even more difficult. Therefore, to effectively execute the madman theory, in most cases, situational implementation may be a more plausible use of the theory.</p>
+
+                            <p>Trump's use of the madman theory places greater emphasis on being tactical and perhaps lacking in grand strategy. Clearly, it is difficult to predict what he might do in the future, so it is difficult to discern what his grand strategy might be. But from what we have seen thus far, it does seem compelling to assume that, at the very least, his grand strategy is bizarre if not lacking, based on the way the US has been dealing with other states, particularly allies.</p>
+
+                            <p>Beyond just Trump, the administration itself may also suffer from a poor assessment of its grand strategy, as is made evident by the likes of Secretary of War (former Secretary of Defence), Pete Hegseth, who has consistently advocated for a doctrine of increased lethality without proper considerations for grand strategy.</p>
+
+                            <h4>Application to Trade Policy</h4>
+
+                            <p>In the case of trade, the madman theory can be applied to tariffs as well. When a state's producer produces a certain good and seeks to export it to another state's market, the importing state may tax the imported good in order to maintain their indigenous producers' competitive edge. This taxation is known as a tariff. If both states place tariffs on each other, their trade is limited and consumer goods' prices increase, as opposed to when they are able to import certain goods from each other for a cheaper price. Therefore, to avoid such inflation, countries maintain trade relations and engage in free trade and maintain a status quo. If, for some reason, one state seeks to coerce their trading partner into something, the state may disrupt the status quo, and issue a threat to place or raise tariffs on its trading partner unless it accepts the threatening state's demands. In such a scenario, the threatened state's exports would potentially take a hit and hurt its economy, and therefore, the state may either choose to take the hit or accept the demands.</p>
+
+                            <p>Such a scenario was visible with Trump's recent imposition of a 50% tariff on Indian goods, which may be seen as an example of erratic coercive behaviour. Though India is seen as an ally, India's continued trade with Russia following Russia's invasion of Ukraine is not taken kindly by the US, and they seek to minimize India's trade with Russia by punishing India with tariffs. Trump also seeks to extend America's agricultural and dairy industry's products to the Indian market, which India is hesitant of accepting due to impacts this may have on its large agricultural sector. Both states seek to protect their own markets, and in doing so, have strained their relationship. With greater cost sensitivity, India is left with little scope for choice. Negotiations seem to be taking place and other trade agreements are being made between both countries, but the tariffs persist, as of the writing of this article.</p>
+
+                            <h4>Conclusion</h4>
+
+                            <p>To conclude, if used in a situational manner, with a larger strategy in mind, based on calculations of other circumstances, the madman theory could be a credible negotiating tool in some instances. Without these factors, however, the theory runs into increased scrutiny. The lines between acting irrationally as a rational actor and actually being an irrational actor become blurry, but that is what threatened-states must decipher in order to navigate the international system.</p>
+
+                            <div class="references">
+                                <h5>Suggested Readings</h5>
+                                <ul>
+                                    <li><a href="https://journals.sagepub.com/doi/10.1177/20419058241238193" target="_blank">The Madman Theory: Evolution and Strategic Implications - SAGE Journals</a></li>
+                                    <li><a href="https://www.orfonline.org/expert-speak/thomas-schelling-golden-age-american-strategy" target="_blank">Thomas Schelling and the Golden Age of American Strategy - ORF</a></li>
+                                    <li><a href="https://www.stimson.org/2025/the-perils-of-lethality/" target="_blank">The Perils of Lethality - Stimson Center</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <a onclick="toggleArticle('madman-theory')" class="read-more">Read Full Article →</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="about">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -592,10 +444,10 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="updates.html">Updates</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Policy Briefs</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -609,5 +461,22 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleArticle(articleId) {
+            const article = document.getElementById(articleId);
+            const readMoreLink = article.querySelector('.read-more');
+            
+            if (article.classList.contains('expanded')) {
+                article.classList.remove('expanded');
+                readMoreLink.textContent = 'Read Full Article →';
+                // Scroll to the article
+                article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                article.classList.add('expanded');
+                readMoreLink.textContent = 'Show Less ←';
+            }
+        }
+    </script>
 </body>
 </html>
