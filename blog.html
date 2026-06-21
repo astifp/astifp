@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +27,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav .container {
@@ -68,7 +69,7 @@
         }
 
         nav a:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
 
@@ -113,13 +114,13 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
         .article-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         /* Expanded state for article cards */
@@ -135,7 +136,7 @@
             display: block;
         }
 
-        .article-card.expanded .article-content > p {
+        .article-card.expanded .article-content>p {
             display: none;
         }
 
@@ -179,7 +180,7 @@
             font-weight: 500;
         }
 
-        .article-content > p {
+        .article-content>p {
             color: #666;
             margin-bottom: 1.5rem;
             line-height: 1.7;
@@ -325,8 +326,100 @@
                 gap: 1rem;
             }
         }
+
+        /* Full Edition Highlight Card (Minimal Style) */
+        .full-edition-card {
+            background: linear-gradient(135deg, #0d366a 0%, #071f3d 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(13, 54, 106, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            border-left: 6px solid #d4af37;
+        }
+
+        .edition-info {
+            flex: 2;
+        }
+
+        .edition-info h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 700;
+        }
+
+        .edition-info p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .edition-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold-small {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: #d4af37;
+            color: #071f3d;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(212, 175, 87, 0.2);
+            font-size: 0.85rem;
+        }
+
+        .btn-gold-small:hover {
+            background: #f3cf5a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(212, 175, 87, 0.35);
+        }
+
+        .btn-outline-white-small {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .btn-outline-white-small:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .full-edition-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+
+            .edition-buttons {
+                width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -337,7 +430,7 @@
             </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html">Journal</a></li>
                 <li><a href="updates.html">Updates</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
@@ -353,387 +446,561 @@
     <!-- All Articles -->
     <section class="articles-section">
         <div class="container">
+            <!-- Full Edition Highlight Banner -->
+            <div class="full-edition-card">
+                <div class="edition-info">
+                    <span class="edition-badge"> Edition 1</span>
+
+                    <p>
+
+
+                    <div class="edition-buttons">
+                        <a href="journal-viewer.html" class="btn-gold-small">Read Edition Online</a>
+                        <a href="The International Trade Journal_Edition 1_June 2026.pdf" download
+                            class="btn-outline-white-small">Download PDF (790 KB)</a>
+                    </div>
+                </div>
+                <div class="edition-visual">
+                    <div class="mini-book">
+
+                        <h4 class="mini-cover-title">The International Trade Journal</h4>
+                        <span style="font-size: 0.6rem; color: rgba(255,255,255,0.4);">June 2026</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="articles-grid">
-                
+
                 <!-- Article 1 -->
                 <div class="article-card" id="madman-theory">
                     <div class="article-image" style="background-image: url('article1.jpeg');"></div>
                     <div class="article-content">
                         <h3>The Quest for Equilibrium: Rationale in Irrationality</h3>
-                        <div class="article-meta">By Fuad Mohammed Agha • Edited by Shakya Khatri & Mannya Narula •March 2025 • 12 min read</div>
+                        <div class="article-meta">By Fuad Mohammed Agha • Edited by Shakya Khatri & Mannya Narula •March
+                            2025 • 12 min read</div>
                         <div class="tags">
                             <span class="tag">Foreign Policy</span>
                             <span class="tag">Game Theory</span>
                             <span class="tag">US Politics</span>
                         </div>
-                        <p>Following President Donald Trump's presidential victory in 2024, his foreign policy has proven to seem erratic to observers and analysts. Whether it be threatening to annex Canada and make it the 51st state of the United States, threats to annex Greenland, threats to limit or end support to Ukraine, or the trade war initiated by the Trump administration, it appears as irrational behaviour. This comprehensive analysis examines the madman theory and its application to contemporary international relations.</p>
-                        
+                        <p>Following President Donald Trump's presidential victory in 2024, his foreign policy has
+                            proven to seem erratic to observers and analysts. Whether it be threatening to annex Canada
+                            and make it the 51st state of the United States, threats to annex Greenland, threats to
+                            limit or end support to Ukraine, or the trade war initiated by the Trump administration, it
+                            appears as irrational behaviour. This comprehensive analysis examines the madman theory and
+                            its application to contemporary international relations.</p>
+
                         <div class="full-article-content">
-                            <p>Following President Donald Trump's presidential victory in 2024, his foreign policy has proven to seem erratic to observers and analysts. Whether it be threatening to annex Canada and make it the 51st state of the United States, threats to annex Greenland, threats to limit or end support to Ukraine, or the trade war initiated by the Trump administration, it appears as irrational behaviour. Alienating and threatening close allies worsens their relations and threatens the World Order. During times of uncertainty in the international political system, could some semblance of rationality be found?</p>
+                            <p>Following President Donald Trump's presidential victory in 2024, his foreign policy has
+                                proven to seem erratic to observers and analysts. Whether it be threatening to annex
+                                Canada and make it the 51st state of the United States, threats to annex Greenland,
+                                threats to limit or end support to Ukraine, or the trade war initiated by the Trump
+                                administration, it appears as irrational behaviour. Alienating and threatening close
+                                allies worsens their relations and threatens the World Order. During times of
+                                uncertainty in the international political system, could some semblance of rationality
+                                be found?</p>
 
-                            <p>In the international system, it is believed that the world is anarchical and that every state is a rational actor acting in its best interest. A state could, acting based on interests that need to be met, issue certain demands on other states or non-state actors. Such demands could be initiated through diplomacy and mutual agreements or through threats, which could include subterfuge.</p>
+                            <p>In the international system, it is believed that the world is anarchical and that every
+                                state is a rational actor acting in its best interest. A state could, acting based on
+                                interests that need to be met, issue certain demands on other states or non-state
+                                actors. Such demands could be initiated through diplomacy and mutual agreements or
+                                through threats, which could include subterfuge.</p>
 
-                            <p><em>It must be noted that here 'threats' are typically verbal, and not always armed.</em></p>
+                            <p><em>It must be noted that here 'threats' are typically verbal, and not always armed.</em>
+                            </p>
 
-                            <p>An actor could choose to either issue a threat or not. When a threat is not issued, the status quo between the states is maintained. In an ideal world, with rational actors, no unnecessary threat should be issued in the first place because issuing an unnecessary threat usually ends in the threatening-state not gaining much of a benefit because they would have to face consequences for deviating from international norms and rational behaviour.</p>
+                            <p>An actor could choose to either issue a threat or not. When a threat is not issued, the
+                                status quo between the states is maintained. In an ideal world, with rational actors, no
+                                unnecessary threat should be issued in the first place because issuing an unnecessary
+                                threat usually ends in the threatening-state not gaining much of a benefit because they
+                                would have to face consequences for deviating from international norms and rational
+                                behaviour.</p>
 
-                            <p>Further, issuing threats disturb economies, as investors and stakeholders become anxious due to newfound volatility in the market.</p>
+                            <p>Further, issuing threats disturb economies, as investors and stakeholders become anxious
+                                due to newfound volatility in the market.</p>
 
-                            <p>To understand the following sequence, let us say that red refers to a state that issues a threat and blue refers to the state that is being threatened.</p>
+                            <p>To understand the following sequence, let us say that red refers to a state that issues a
+                                threat and blue refers to the state that is being threatened.</p>
 
-                            <p>If the red state decides to issue a threat, the blue state is put into a dilemma, and can make either of the two decisions: to succumb to the threat or to ignore the threat, resulting in an escalation. If the blue state chooses the former, then the red state, which issued the threat, is benefitted and is victorious in achieving its goal. On the other hand, if it chooses the latter, it escalates just by ignoring the verbal threat.</p>
+                            <p>If the red state decides to issue a threat, the blue state is put into a dilemma, and can
+                                make either of the two decisions: to succumb to the threat or to ignore the threat,
+                                resulting in an escalation. If the blue state chooses the former, then the red state,
+                                which issued the threat, is benefitted and is victorious in achieving its goal. On the
+                                other hand, if it chooses the latter, it escalates just by ignoring the verbal threat.
+                            </p>
 
-                            <p>Thus, the red state has to make a decision in response to the escalation and has two options: to punish the blue state for indirectly escalating or retreating by ignoring the escalation. Once a threat has been issued, it is up to the blue state to assess the credibility of the threat. Typically, one might assume that when a threat seems absurd, it is unlikely to be credible. Paradoxically, however, it is the irrationality of the threat that gives it credibility. This paradox becomes integral to the theory. In addition to its typically hegemonic status, if the red state is perceived to be truly mad, the blue state may succumb, as it is difficult to predict whether the red state will actually act on its threat.</p>
+                            <p>Thus, the red state has to make a decision in response to the escalation and has two
+                                options: to punish the blue state for indirectly escalating or retreating by ignoring
+                                the escalation. Once a threat has been issued, it is up to the blue state to assess the
+                                credibility of the threat. Typically, one might assume that when a threat seems absurd,
+                                it is unlikely to be credible. Paradoxically, however, it is the irrationality of the
+                                threat that gives it credibility. This paradox becomes integral to the theory. In
+                                addition to its typically hegemonic status, if the red state is perceived to be truly
+                                mad, the blue state may succumb, as it is difficult to predict whether the red state
+                                will actually act on its threat.</p>
 
-                            <p>The blue state's best-case scenario is that the red state is simply employing a tactic of erratic nature to intimidate the blue state into coercion, in which case the blue state must recognise the threat as an act of intimidation without substantial plausibility and ignore the bluff.</p>
+                            <p>The blue state's best-case scenario is that the red state is simply employing a tactic of
+                                erratic nature to intimidate the blue state into coercion, in which case the blue state
+                                must recognise the threat as an act of intimidation without substantial plausibility and
+                                ignore the bluff.</p>
 
-                            <p>Its worst-case scenario, on the other hand, would be if it assesses the threat incorrectly and ignores the threat, resulting in an escalation, in which the aggressor-state actually acts upon its threat and punishes the blue state for escalating.</p>
+                            <p>Its worst-case scenario, on the other hand, would be if it assesses the threat
+                                incorrectly and ignores the threat, resulting in an escalation, in which the
+                                aggressor-state actually acts upon its threat and punishes the blue state for
+                                escalating.</p>
 
-                            <p>In most cases, however, the state that issues the threat is not likely to actually follow through with its threat because the actor isn't actually rogue; they're simply pretending for the purpose of increased leverage to bargain. The threat is issued to project madness that attempts to intimidate the victim-state into succumbing to the threatening-state's demands. This is merely an imposture where a rational actor is acting irrationally. They cannot typically bear the consequences for the strategic aberration that they have made.</p>
+                            <p>In most cases, however, the state that issues the threat is not likely to actually follow
+                                through with its threat because the actor isn't actually rogue; they're simply
+                                pretending for the purpose of increased leverage to bargain. The threat is issued to
+                                project madness that attempts to intimidate the victim-state into succumbing to the
+                                threatening-state's demands. This is merely an imposture where a rational actor is
+                                acting irrationally. They cannot typically bear the consequences for the strategic
+                                aberration that they have made.</p>
 
-                            <p>The worst form of punishment that the red state could employ, in the case of an escalation, is the nuclear route. But in the age of Mutually Assured Destruction and the cataclysmic nature of a nuclear strike, the aggressor-state would also likely recognise its consequences and use its nuclear armada merely as a form of deterrence or a negotiating tool, as is the case with the madman theory.</p>
+                            <p>The worst form of punishment that the red state could employ, in the case of an
+                                escalation, is the nuclear route. But in the age of Mutually Assured Destruction and the
+                                cataclysmic nature of a nuclear strike, the aggressor-state would also likely recognise
+                                its consequences and use its nuclear armada merely as a form of deterrence or a
+                                negotiating tool, as is the case with the madman theory.</p>
 
                             <h4>Efficacy of the Madman Theory</h4>
 
-                            <p>To assess a threat's credibility, there are two aspects of strategic behaviour that could help: Understanding whether the state's use of erratic behaviour is dispositional or situational.</p>
+                            <p>To assess a threat's credibility, there are two aspects of strategic behaviour that could
+                                help: Understanding whether the state's use of erratic behaviour is dispositional or
+                                situational.</p>
 
-                            <p>If an actor's use of the madman theory is dispositional, it decreases the credibility of the threat. Madness is no longer volatile if its nature is dispositional because other actors would've understood the rogue state always pursues grand, erratic goals. This makes assessing the threat easier and increases other states' ability to navigate dealing with the rogue state. The actor may truly be irrational, rather than being a rational actor playing irrational.</p>
+                            <p>If an actor's use of the madman theory is dispositional, it decreases the credibility of
+                                the threat. Madness is no longer volatile if its nature is dispositional because other
+                                actors would've understood the rogue state always pursues grand, erratic goals. This
+                                makes assessing the threat easier and increases other states' ability to navigate
+                                dealing with the rogue state. The actor may truly be irrational, rather than being a
+                                rational actor playing irrational.</p>
 
-                            <p>On the other hand, if its use is situational, it enables real volatility and makes assessing the threat even more difficult. Therefore, to effectively execute the madman theory, in most cases, situational implementation may be a more plausible use of the theory.</p>
+                            <p>On the other hand, if its use is situational, it enables real volatility and makes
+                                assessing the threat even more difficult. Therefore, to effectively execute the madman
+                                theory, in most cases, situational implementation may be a more plausible use of the
+                                theory.</p>
 
-                            <p>Trump's use of the madman theory places greater emphasis on being tactical and perhaps lacking in grand strategy. Clearly, it is difficult to predict what he might do in the future, so it is difficult to discern what his grand strategy might be. But from what we have seen thus far, it does seem compelling to assume that, at the very least, his grand strategy is bizarre if not lacking, based on the way the US has been dealing with other states, particularly allies.</p>
+                            <p>Trump's use of the madman theory places greater emphasis on being tactical and perhaps
+                                lacking in grand strategy. Clearly, it is difficult to predict what he might do in the
+                                future, so it is difficult to discern what his grand strategy might be. But from what we
+                                have seen thus far, it does seem compelling to assume that, at the very least, his grand
+                                strategy is bizarre if not lacking, based on the way the US has been dealing with other
+                                states, particularly allies.</p>
 
-                            <p>Beyond just Trump, the administration itself may also suffer from a poor assessment of its grand strategy, as is made evident by the likes of Secretary of War (former Secretary of Defence), Pete Hegseth, who has consistently advocated for a doctrine of increased lethality without proper considerations for grand strategy.</p>
+                            <p>Beyond just Trump, the administration itself may also suffer from a poor assessment of
+                                its grand strategy, as is made evident by the likes of Secretary of War (former
+                                Secretary of Defence), Pete Hegseth, who has consistently advocated for a doctrine of
+                                increased lethality without proper considerations for grand strategy.</p>
 
                             <h4>Application to Trade Policy</h4>
 
-                            <p>In the case of trade, the madman theory can be applied to tariffs as well. When a state's producer produces a certain good and seeks to export it to another state's market, the importing state may tax the imported good in order to maintain their indigenous producers' competitive edge. This taxation is known as a tariff. If both states place tariffs on each other, their trade is limited and consumer goods' prices increase, as opposed to when they are able to import certain goods from each other for a cheaper price. Therefore, to avoid such inflation, countries maintain trade relations and engage in free trade and maintain a status quo. If, for some reason, one state seeks to coerce their trading partner into something, the state may disrupt the status quo, and issue a threat to place or raise tariffs on its trading partner unless it accepts the threatening state's demands. In such a scenario, the threatened state's exports would potentially take a hit and hurt its economy, and therefore, the state may either choose to take the hit or accept the demands.</p>
+                            <p>In the case of trade, the madman theory can be applied to tariffs as well. When a state's
+                                producer produces a certain good and seeks to export it to another state's market, the
+                                importing state may tax the imported good in order to maintain their indigenous
+                                producers' competitive edge. This taxation is known as a tariff. If both states place
+                                tariffs on each other, their trade is limited and consumer goods' prices increase, as
+                                opposed to when they are able to import certain goods from each other for a cheaper
+                                price. Therefore, to avoid such inflation, countries maintain trade relations and engage
+                                in free trade and maintain a status quo. If, for some reason, one state seeks to coerce
+                                their trading partner into something, the state may disrupt the status quo, and issue a
+                                threat to place or raise tariffs on its trading partner unless it accepts the
+                                threatening state's demands. In such a scenario, the threatened state's exports would
+                                potentially take a hit and hurt its economy, and therefore, the state may either choose
+                                to take the hit or accept the demands.</p>
 
-                            <p>Such a scenario was visible with Trump's recent imposition of a 50% tariff on Indian goods, which may be seen as an example of erratic coercive behaviour. Though India is seen as an ally, India's continued trade with Russia following Russia's invasion of Ukraine is not taken kindly by the US, and they seek to minimize India's trade with Russia by punishing India with tariffs. Trump also seeks to extend America's agricultural and dairy industry's products to the Indian market, which India is hesitant of accepting due to impacts this may have on its large agricultural sector. Both states seek to protect their own markets, and in doing so, have strained their relationship. With greater cost sensitivity, India is left with little scope for choice. Negotiations seem to be taking place and other trade agreements are being made between both countries, but the tariffs persist, as of the writing of this article.</p>
+                            <p>Such a scenario was visible with Trump's recent imposition of a 50% tariff on Indian
+                                goods, which may be seen as an example of erratic coercive behaviour. Though India is
+                                seen as an ally, India's continued trade with Russia following Russia's invasion of
+                                Ukraine is not taken kindly by the US, and they seek to minimize India's trade with
+                                Russia by punishing India with tariffs. Trump also seeks to extend America's
+                                agricultural and dairy industry's products to the Indian market, which India is hesitant
+                                of accepting due to impacts this may have on its large agricultural sector. Both states
+                                seek to protect their own markets, and in doing so, have strained their relationship.
+                                With greater cost sensitivity, India is left with little scope for choice. Negotiations
+                                seem to be taking place and other trade agreements are being made between both
+                                countries, but the tariffs persist, as of the writing of this article.</p>
 
                             <h4>Conclusion</h4>
 
-                            <p>To conclude, if used in a situational manner, with a larger strategy in mind, based on calculations of other circumstances, the madman theory could be a credible negotiating tool in some instances. Without these factors, however, the theory runs into increased scrutiny. The lines between acting irrationally as a rational actor and actually being an irrational actor become blurry, but that is what threatened-states must decipher in order to navigate the international system.</p>
+                            <p>To conclude, if used in a situational manner, with a larger strategy in mind, based on
+                                calculations of other circumstances, the madman theory could be a credible negotiating
+                                tool in some instances. Without these factors, however, the theory runs into increased
+                                scrutiny. The lines between acting irrationally as a rational actor and actually being
+                                an irrational actor become blurry, but that is what threatened-states must decipher in
+                                order to navigate the international system.</p>
 
                             <div class="references">
                                 <h5>Suggested Readings</h5>
                                 <ul>
-                                    <li><a href="https://journals.sagepub.com/doi/10.1177/20419058241238193" target="_blank">The Madman Theory: Evolution and Strategic Implications - SAGE Journals</a></li>
-                                    <li><a href="https://www.orfonline.org/expert-speak/thomas-schelling-golden-age-american-strategy" target="_blank">Thomas Schelling and the Golden Age of American Strategy - ORF</a></li>
-                                    <li><a href="https://www.stimson.org/2025/the-perils-of-lethality/" target="_blank">The Perils of Lethality - Stimson Center</a></li>
+                                    <li><a href="https://journals.sagepub.com/doi/10.1177/20419058241238193"
+                                            target="_blank">The Madman Theory: Evolution and Strategic Implications -
+                                            SAGE Journals</a></li>
+                                    <li><a href="https://www.orfonline.org/expert-speak/thomas-schelling-golden-age-american-strategy"
+                                            target="_blank">Thomas Schelling and the Golden Age of American Strategy -
+                                            ORF</a></li>
+                                    <li><a href="https://www.stimson.org/2025/the-perils-of-lethality/"
+                                            target="_blank">The Perils of Lethality - Stimson Center</a></li>
                                 </ul>
                             </div>
                         </div>
-                        
+
                         <a onclick="toggleArticle('madman-theory')" class="read-more">Read Full Article →</a>
                     </div>
                 </div>
 
-                    <!-- Article 2 -->
-                    <div class="article-card" id="sahel-uranium">
-                        <div class="article-image" style="background-image: url('article2-1.png');"></div>
-                        
-                        <div class="article-content">
-                            <h3>The Sahel Crisis and the Global Uranium Shift</h3>
-                            
-                            <div class="article-meta">By Amartya • Edited by Shakya Khatri & Mannya Narula • 2026 • 8 min read</div>
-                            
-                            <div class="tags">
-                                <span class="tag">Africa</span>
-                                <span class="tag">Trade</span>
-                                <span class="tag">Energy</span>
-                            </div>
-                    
+                <!-- Article 2 -->
+                <div class="article-card" id="sahel-uranium">
+                    <div class="article-image" style="background-image: url('article2-1.png');"></div>
+
+                    <div class="article-content">
+                        <h3>The Sahel Crisis and the Global Uranium Shift</h3>
+
+                        <div class="article-meta">By Amartya • Edited by Shakya Khatri & Mannya Narula • 2026 • 8 min
+                            read</div>
+
+                        <div class="tags">
+                            <span class="tag">Africa</span>
+                            <span class="tag">Trade</span>
+                            <span class="tag">Energy</span>
+                        </div>
+
+                        <p>
+                            On the 9th of November 2022, the French military base in Bamako, the Malian capital shuts
+                            its
+                            doors. For nearly a decade, this was the political nerve center of a counterterrorism
+                            operation
+                            that spanned five countries. Resembling a fortress, the base’s guard walls topped with
+                            barbed
+                            wire served as a reminder of a bygone colonial area.
+                        </p>
+
+                        <div class="full-article-content">
+
                             <p>
-                                On the 9th of November 2022, the French military base in Bamako, the Malian capital shuts its 
-                                doors. For nearly a decade, this was the political nerve center of a counterterrorism operation 
-                                that spanned five countries. Resembling a fortress, the base’s guard walls topped with barbed 
-                                wire served as a reminder of a bygone colonial area.  
-                            </p>
-                    
-                            <div class="full-article-content">
-                    
-                                <p>
-                                On the 9th of November 2022, the French military base in Bamako shut its doors, ending a decade-long 
-                                counterterrorism presence across the Sahel. This marked the decline of France’s influence in a region 
+                                On the 9th of November 2022, the French military base in Bamako shut its doors, ending a
+                                decade-long
+                                counterterrorism presence across the Sahel. This marked the decline of France’s
+                                influence in a region
                                 increasingly shaped by military juntas and shifting alliances.
-                                </p>
-                    
-                                <p>
-                                Following the end of Operation Barkhane against Islamist militants, France quickly withdrew its 
-                                forces from Central Africa. Driven by pressure from newly installed military juntas in the region, 
-                                France was left with no choice. This region comprising Mali, Burkina Faso, Niger and Chad, is 
-                                called the Sahel. A series of coups between 2021 and 2025 earned this region its infamous 
-                                name; The African Coup belt. Ideologically, the military juntas oppose France’s continued 
-                                neo-colonial presence in the region, and support an alignment with Russia and China.  
-                                </p>
+                            </p>
 
-                                <img src="article2-1.png" style="width:100%; border-radius:10px; margin:20px 0;">
-                    
-                                <p>
-                                The uranium rich country of Niger was the backbone of France’s energy security. While its EU 
-                                peers like Germany were phasing out nuclear energy, France expanded it, and now nearly 70% 
-                                of its electricity supply comes from nuclear energy. Despite being France’s second largest 
-                                supplier of uranium, providing 20% of the country’s needs, Niger lacked full rights over its own 
-                                resources. Decades of pro-France governments, allowed French owned firms to extract the 
-                                African nation’s uranium. This arrangement was suspended as the Nigerien junta led by General 
-                                Abdourahmane Tchiani nationalized the local subsidiary of France’s state owned Orano 
-                                corporation, Somair. For the French, the consequences of this are massive. Unlike its other 
-                                suppliers, Kazakhstan and Canada, France controlled the entire uranium supply chain in Niger. 
-                                Paris owned the mines, the supply lines as well as the processing plants and the powerplants.  
-                                </p>
+                            <p>
+                                Following the end of Operation Barkhane against Islamist militants, France quickly
+                                withdrew its
+                                forces from Central Africa. Driven by pressure from newly installed military juntas in
+                                the region,
+                                France was left with no choice. This region comprising Mali, Burkina Faso, Niger and
+                                Chad, is
+                                called the Sahel. A series of coups between 2021 and 2025 earned this region its
+                                infamous
+                                name; The African Coup belt. Ideologically, the military juntas oppose France’s
+                                continued
+                                neo-colonial presence in the region, and support an alignment with Russia and China.
+                            </p>
 
-                                 <img src="article2-2.png" style="width:100%; border-radius:10px; margin:20px 0;">
-                    
-                                <p>
-                                For France’s nuclear expansion, this means trouble. On December 1st 2025, the Nigerien 
-                                President announced the liberalization of the country’s uranium market; allowing the country’s 
-                                uranium reserves to be freely sold on the international market. Moreover, after the 
-                                nationalisation of Somair, international mining companies are allowed to bid for contracts to help 
-                                develop and operate Nigerien state owned mines- opening up the market to international 
-                                players from Russia, China, US and Canada into a market which once was exclusively for 
-                                French capital. The instability in the market post coup as well as supply issues in other major 
-                                producers, such as Kazakhstan caused uranium prices to reach an all time high of over 
-                                $100/pound in Jan 2024. Furthermore, global demand for uranium keeps shooting up, partly 
-                                due to increased energy needs for an AI age. By 2035, global uranium demand is expected to 
-                                hit 200 million pounds, however, supply is expected to fall short by approximately 114 million 
-                                pounds. Niger’s ability to meet demand is also in question. Sanctions applied by the Economic 
-                                Community of West African States (ECOWAS) have resulted in the closure of the Benin-Niger 
-                                border, shutting off Niger’s ability to export through Benin’s Coutonou port. This has forced the 
-                                country to export lesser quantities of uranium through riskier routes which often pass through 
-                                Islamic State controlled territories in western Niger and Burkina Faso, to reach ports in Togo.  
-                                </p>
-                    
-                                <p>
-                                While France is at a direct loss, the rest of the world can, in theory, benefit from the Nigerien 
-                                Junta’s trade policy. The floating of existing reserves on the free market is an indication that the 
-                                regime genuinely wants to engage with the rest of the world. However, the deepening 
-                                cooperation between Niger and Russia, raises concern about France’s once privileged position 
-                                being replaced by Russia. Nevertheless, the junta does show interest in diversifying trading 
-                                partners, by granting mining rights in a new mine in Dasa to the Canadian firm- Global Atomic 
-                                Energy. 
-                                </p>
+                            <img src="article2-1.png" style="width:100%; border-radius:10px; margin:20px 0;">
 
-                                 <img src="article2-3.png" style="width:100%; border-radius:10px; margin:20px 0;">
-                    
-                                <p>
-                                What the world has to fear is the growing instability in Niger and the Sahel. After the withdrawal 
-                                of French troops, Niger has relied increasingly on Russian mercenaries like PMC-Wagner and 
-                                its own armed forces for counterinsurgency. Similar to other nations in the Sahel region such as 
-                                Burkina Faso after its coup, Niger experienced an increase in terrorist attacks, particularly from 
-                                ISIS. This not only endangers the supply chain of uranium, it makes one fear a hypothetical 
-                                scenario wherein ISIS has control over nuclear material. 
-                                </p>
-                    
-                            </div>
-                    
-                            <a onclick="toggleArticle('sahel-uranium')" class="read-more">
-                                Read Full Article →
-                            </a>
+                            <p>
+                                The uranium rich country of Niger was the backbone of France’s energy security. While
+                                its EU
+                                peers like Germany were phasing out nuclear energy, France expanded it, and now nearly
+                                70%
+                                of its electricity supply comes from nuclear energy. Despite being France’s second
+                                largest
+                                supplier of uranium, providing 20% of the country’s needs, Niger lacked full rights over
+                                its own
+                                resources. Decades of pro-France governments, allowed French owned firms to extract the
+                                African nation’s uranium. This arrangement was suspended as the Nigerien junta led by
+                                General
+                                Abdourahmane Tchiani nationalized the local subsidiary of France’s state owned Orano
+                                corporation, Somair. For the French, the consequences of this are massive. Unlike its
+                                other
+                                suppliers, Kazakhstan and Canada, France controlled the entire uranium supply chain in
+                                Niger.
+                                Paris owned the mines, the supply lines as well as the processing plants and the
+                                powerplants.
+                            </p>
+
+                            <img src="article2-2.png" style="width:100%; border-radius:10px; margin:20px 0;">
+
+                            <p>
+                                For France’s nuclear expansion, this means trouble. On December 1st 2025, the Nigerien
+                                President announced the liberalization of the country’s uranium market; allowing the
+                                country’s
+                                uranium reserves to be freely sold on the international market. Moreover, after the
+                                nationalisation of Somair, international mining companies are allowed to bid for
+                                contracts to help
+                                develop and operate Nigerien state owned mines- opening up the market to international
+                                players from Russia, China, US and Canada into a market which once was exclusively for
+                                French capital. The instability in the market post coup as well as supply issues in
+                                other major
+                                producers, such as Kazakhstan caused uranium prices to reach an all time high of over
+                                $100/pound in Jan 2024. Furthermore, global demand for uranium keeps shooting up, partly
+                                due to increased energy needs for an AI age. By 2035, global uranium demand is expected
+                                to
+                                hit 200 million pounds, however, supply is expected to fall short by approximately 114
+                                million
+                                pounds. Niger’s ability to meet demand is also in question. Sanctions applied by the
+                                Economic
+                                Community of West African States (ECOWAS) have resulted in the closure of the
+                                Benin-Niger
+                                border, shutting off Niger’s ability to export through Benin’s Coutonou port. This has
+                                forced the
+                                country to export lesser quantities of uranium through riskier routes which often pass
+                                through
+                                Islamic State controlled territories in western Niger and Burkina Faso, to reach ports
+                                in Togo.
+                            </p>
+
+                            <p>
+                                While France is at a direct loss, the rest of the world can, in theory, benefit from the
+                                Nigerien
+                                Junta’s trade policy. The floating of existing reserves on the free market is an
+                                indication that the
+                                regime genuinely wants to engage with the rest of the world. However, the deepening
+                                cooperation between Niger and Russia, raises concern about France’s once privileged
+                                position
+                                being replaced by Russia. Nevertheless, the junta does show interest in diversifying
+                                trading
+                                partners, by granting mining rights in a new mine in Dasa to the Canadian firm- Global
+                                Atomic
+                                Energy.
+                            </p>
+
+                            <img src="article2-3.png" style="width:100%; border-radius:10px; margin:20px 0;">
+
+                            <p>
+                                What the world has to fear is the growing instability in Niger and the Sahel. After the
+                                withdrawal
+                                of French troops, Niger has relied increasingly on Russian mercenaries like PMC-Wagner
+                                and
+                                its own armed forces for counterinsurgency. Similar to other nations in the Sahel region
+                                such as
+                                Burkina Faso after its coup, Niger experienced an increase in terrorist attacks,
+                                particularly from
+                                ISIS. This not only endangers the supply chain of uranium, it makes one fear a
+                                hypothetical
+                                scenario wherein ISIS has control over nuclear material.
+                            </p>
+
                         </div>
+
+                        <a onclick="toggleArticle('sahel-uranium')" class="read-more">
+                            Read Full Article →
+                        </a>
                     </div>
-                    <!-- Article 3 -->
-                    <div class="article-card" id="china-ev">
-                        <div class="article-image" style="background-image: url('article3-1.png');"></div>
-                        <div class="article-content">
-                            <h3>Exploring the phenomenon of Involution in the Chinese EV sector</h3>
-                            <div class="article-meta">By Divij Sharma • Edited by Shakya Khatri & Mannya Narula •March 2025 • 9 min read</div>
-                            <div class="tags">
-                                <span class="tag">China</span>
-                                <span class="tag">EV Industry</span>
-                                <span class="tag">Economics</span>
-                            </div>
-                            <p>As the 15th Five-Year Plan of the People’s Republic of China- the initiatives for the future of socioeconomic development in the country has been adopted by the Central Committee and awaits legislative 
-                                approval, the pillars of the agenda are more or less set in stone. Over 
-                                the 5000 word document published in the aftermath of the 4th Plenum, 
-                                or meeting, of the CCP Central Committee, important issues have 
-                                been recognized and promises for their resolution have been made. 
-                                Some of these include AI, competition with the US, concerns 
-                                surrounding birthrates, among others. 
-                                One issue in particular concerning the “New Energy Vehicle” (NEV) 
-                                industry is that of involution - or ‘neijuan’- a term in mandarin referring 
-                                to self-defeating, stagnation-driving competition where a glut of firms 
-                                cut prices into oblivion, driving down wages, investments and 
-                                ultimately economic activity. </p>
-                            
-                            <div class="full-article-content">
-                                <p>
-                                As the 15th Five-Year Plan of the People’s Republic of China- the 
-                                initiatives for the future of socioeconomic development in the country 
-                                has been adopted by the Central Committee and awaits legislative 
-                                approval, the pillars of the agenda are more or less set in stone. Over 
-                                the 5000 word document published in the aftermath of the 4th Plenum, 
-                                or meeting, of the CCP Central Committee, important issues have 
-                                been recognized and promises for their resolution have been made. 
-                                Some of these include AI, competition with the US, concerns 
-                                surrounding birthrates, among others. 
-                                One issue in particular concerning the “New Energy Vehicle” (NEV) 
-                                industry is that of involution - or ‘neijuan’- a term in mandarin referring 
-                                to self-defeating, stagnation-driving competition where a glut of firms 
-                                cut prices into oblivion, driving down wages, investments and 
-                                ultimately economic activity.     
-                                </p>
+                </div>
+                <!-- Article 3 -->
+                <div class="article-card" id="china-ev">
+                    <div class="article-image" style="background-image: url('article3-1.png');"></div>
+                    <div class="article-content">
+                        <h3>Exploring the phenomenon of Involution in the Chinese EV sector</h3>
+                        <div class="article-meta">By Divij Sharma • Edited by Shakya Khatri & Mannya Narula •March 2025
+                            • 9 min read</div>
+                        <div class="tags">
+                            <span class="tag">China</span>
+                            <span class="tag">EV Industry</span>
+                            <span class="tag">Economics</span>
+                        </div>
+                        <p>As the 15th Five-Year Plan of the People’s Republic of China- the initiatives for the future
+                            of socioeconomic development in the country has been adopted by the Central Committee and
+                            awaits legislative
+                            approval, the pillars of the agenda are more or less set in stone. Over
+                            the 5000 word document published in the aftermath of the 4th Plenum,
+                            or meeting, of the CCP Central Committee, important issues have
+                            been recognized and promises for their resolution have been made.
+                            Some of these include AI, competition with the US, concerns
+                            surrounding birthrates, among others.
+                            One issue in particular concerning the “New Energy Vehicle” (NEV)
+                            industry is that of involution - or ‘neijuan’- a term in mandarin referring
+                            to self-defeating, stagnation-driving competition where a glut of firms
+                            cut prices into oblivion, driving down wages, investments and
+                            ultimately economic activity. </p>
 
-                                <p>
-                                    In order to understand Involution, we must understand the NEV 
-                                    industry at large. Exact details are hard to find and estimate, but a 
-                                    figure revealed by the government for the time period 2016-2020 
-                                    stated that 1.59 trillion Yuan ($230 billion) were poured into EV 
-                                    producing companies. Further data for 2021-22 revealed that 
-                                    subsidies comparatively favoured leading private players and new 
-                                    entrants (namely Tesla, BYD, Leapmotor) over state-owned firms- 
-                                    reflecting a policy push to diversify the market. (1) 
-                                    The outcomes, purely in terms of output and effectiveness, have been 
-                                    staggering. In the first half of 2025 , 50.1% of all passenger car sales 
-                                    in China were EV’s, the first time they outsold ICE (Internal 
-                                    Combustion Engines)- a feat only a handful of countries have been 
-                                    able to achieve. Beyond the domestic impact, Chinese “National 
-                                    Champions” have made their presence felt in international markets. 
-                                    Take Europe for example, BYD has been outselling Tesla since April 
-                                    2025; and is currently in the process of building a 4 billion euro factory 
-                                    plant in Hungary. Chinese prices, even after accounting for 
-                                    anti-dumping tariffs, are just too hard to compete with- the Dolphin 
-                                    Surf (the real volume driver in BYD’s EU market) starts at roughly 
-                                    20,000 euros. In contrast, the Tesla Model 3 starts at 36k Euros, and 
-                                    the Volkswagen ID3 starts at 29k euros. The only reason this 
-                                    gargantuan market share has not been achieved in the US is almost 
-                                    definitely because of a 100% tariff rate on all Chinese EV’s to make up 
-                                    for the cost (and subsequently price) discrepancies between Chinese 
-                                    and American manufacturers. 
-                                </p>
+                        <div class="full-article-content">
+                            <p>
+                                As the 15th Five-Year Plan of the People’s Republic of China- the
+                                initiatives for the future of socioeconomic development in the country
+                                has been adopted by the Central Committee and awaits legislative
+                                approval, the pillars of the agenda are more or less set in stone. Over
+                                the 5000 word document published in the aftermath of the 4th Plenum,
+                                or meeting, of the CCP Central Committee, important issues have
+                                been recognized and promises for their resolution have been made.
+                                Some of these include AI, competition with the US, concerns
+                                surrounding birthrates, among others.
+                                One issue in particular concerning the “New Energy Vehicle” (NEV)
+                                industry is that of involution - or ‘neijuan’- a term in mandarin referring
+                                to self-defeating, stagnation-driving competition where a glut of firms
+                                cut prices into oblivion, driving down wages, investments and
+                                ultimately economic activity.
+                            </p>
 
-                                 <img src="article3-1.png" style="width:100%; border-radius:10px; margin:20px 0;">
-                                <p>
-                                    With regards to innovation, Chinese research by firms like CATL has 
-                                    led to cheaper LFP batteries, earlier written off as obsolete, eclipsing 
-                                    the American favoured cobalt/nickel based batteries. In a similar vein, 
-                                    China now produces more highly-cited scientific research papers on 
-                                    EVs than the US and Germany combined, and has been making 
-                                    inroads in terms of patents publications too. (2)
-                                </p>
+                            <p>
+                                In order to understand Involution, we must understand the NEV
+                                industry at large. Exact details are hard to find and estimate, but a
+                                figure revealed by the government for the time period 2016-2020
+                                stated that 1.59 trillion Yuan ($230 billion) were poured into EV
+                                producing companies. Further data for 2021-22 revealed that
+                                subsidies comparatively favoured leading private players and new
+                                entrants (namely Tesla, BYD, Leapmotor) over state-owned firms-
+                                reflecting a policy push to diversify the market. (1)
+                                The outcomes, purely in terms of output and effectiveness, have been
+                                staggering. In the first half of 2025 , 50.1% of all passenger car sales
+                                in China were EV’s, the first time they outsold ICE (Internal
+                                Combustion Engines)- a feat only a handful of countries have been
+                                able to achieve. Beyond the domestic impact, Chinese “National
+                                Champions” have made their presence felt in international markets.
+                                Take Europe for example, BYD has been outselling Tesla since April
+                                2025; and is currently in the process of building a 4 billion euro factory
+                                plant in Hungary. Chinese prices, even after accounting for
+                                anti-dumping tariffs, are just too hard to compete with- the Dolphin
+                                Surf (the real volume driver in BYD’s EU market) starts at roughly
+                                20,000 euros. In contrast, the Tesla Model 3 starts at 36k Euros, and
+                                the Volkswagen ID3 starts at 29k euros. The only reason this
+                                gargantuan market share has not been achieved in the US is almost
+                                definitely because of a 100% tariff rate on all Chinese EV’s to make up
+                                for the cost (and subsequently price) discrepancies between Chinese
+                                and American manufacturers.
+                            </p>
 
-                                 <img src="article 3-2.png" style="width:100%; border-radius:10px; margin:20px 0;">
-                                 <img src="article 3-3.png" style="width:100%; border-radius:10px; margin:20px 0;">
-                                
-                                <p>
-                                    The system however is not without its flaws. Involution is both an 
-                                    active policy issue as well as a symptom of deeper, structural 
-                                    problems of the financial and industrial practices of the PRC. 
-                                    Involution within the NEV industry is neither monocausal nor caused 
-                                    purely by factors endogenous to NEV policy. One of the bigger 
-                                    contributors would likely be the property sector slump- a crisis which 
-                                    deeply affected the sector where most Chinese consumers parked 
-                                    their savings, and also exposed flaws within Local Government 
-                                    dependence on land sales for finances, which in turn triggered 
-                                    downward pressures on prices as consumption started stagnating, 
-                                    thereby putting pressure on domestic firms to deal with their 
-                                    “overcapacity” by exporting to make up for the drop in domestic 
-                                    demands. Couple this with the subsidy driven horde of competitors, 
-                                    and the issue of involution makes itself known. 
-                                </p>
-                                <p>
-                                    Indeed, the production side of the coin has its own structural quirks, 
-                                    driven by generous subsidies and broad based loans from a financial 
-                                    sector aimed at acting in tandem with national interests rather than 
-                                    profit motives, the industrial policy reliant model of production results 
-                                    in large amounts of lost output due to money being put into losing 
-                                    horses - some estimates put the “money wasted” at roughly $370 
-                                    billion (3). Nonetheless, the CCP has shown time and time again that 
-                                    it is willing to sacrifice some amount of efficiency and productivity if it 
-                                    means achieving total market dominance and strengthening Chinese 
-                                    geopolitical interests through the power of sheer output. 
-                                </p>
+                            <img src="article3-1.png" style="width:100%; border-radius:10px; margin:20px 0;">
+                            <p>
+                                With regards to innovation, Chinese research by firms like CATL has
+                                led to cheaper LFP batteries, earlier written off as obsolete, eclipsing
+                                the American favoured cobalt/nickel based batteries. In a similar vein,
+                                China now produces more highly-cited scientific research papers on
+                                EVs than the US and Germany combined, and has been making
+                                inroads in terms of patents publications too. (2)
+                            </p>
 
-                                <p>
-                                    The problem arises due to this gargantuan amount of supply not 
-                                    seeing enough demand within the domestic economy. The impacts of 
-                                    this are twofold- foreign and domestic. Overcapacity prompts firms to 
-                                    make up for this discrepancy by exporting the excess product to 
-                                    nations which are then overwhelmed by cheap Chinese goods gutting 
-                                    a lot of native producers, a phenomenon that has come to be 
-                                    neologised as the “Second China Shock”. This paranoia boils over into 
-                                    souring relations between the PRC and other geopolitically important 
-                                    entities (ASEAN, for example), something which is, for obvious 
-                                    reasons, undesirable to a nation seeking to change the Western 
-                                    dominated global system of today. On a domestic level, the 
-                                    supply-demand mismatch prompts producers to engage in price wars 
-                                    with each other in order to get to the relatively small amount of 
-                                    consumer demand present. Now, an $8,000 BYD seems like an 
-                                    unequivocally good thing to most, but the second order effects here 
-                                    are that due to lower price signals, EV firms will cut on costs in the 
-                                    form of wages and future investment/expansion of the firm's 
-                                    operations. Other than EV’s the sectors currently most affected by 
-                                    involution are steel and solar panels- again, heavily subsidized by the 
-                                    central government.
-                                </p>
+                            <img src="article 3-2.png" style="width:100%; border-radius:10px; margin:20px 0;">
+                            <img src="article 3-3.png" style="width:100%; border-radius:10px; margin:20px 0;">
 
-                                <p>
-                                    Policy discourse surrounding involution (and the broader issues of 
-                                    overproduction, overcapacity and weak consumer demand) typically 
-                                    concentrate around 2 different approaches- 
-                                </p>
+                            <p>
+                                The system however is not without its flaws. Involution is both an
+                                active policy issue as well as a symptom of deeper, structural
+                                problems of the financial and industrial practices of the PRC.
+                                Involution within the NEV industry is neither monocausal nor caused
+                                purely by factors endogenous to NEV policy. One of the bigger
+                                contributors would likely be the property sector slump- a crisis which
+                                deeply affected the sector where most Chinese consumers parked
+                                their savings, and also exposed flaws within Local Government
+                                dependence on land sales for finances, which in turn triggered
+                                downward pressures on prices as consumption started stagnating,
+                                thereby putting pressure on domestic firms to deal with their
+                                “overcapacity” by exporting to make up for the drop in domestic
+                                demands. Couple this with the subsidy driven horde of competitors,
+                                and the issue of involution makes itself known.
+                            </p>
+                            <p>
+                                Indeed, the production side of the coin has its own structural quirks,
+                                driven by generous subsidies and broad based loans from a financial
+                                sector aimed at acting in tandem with national interests rather than
+                                profit motives, the industrial policy reliant model of production results
+                                in large amounts of lost output due to money being put into losing
+                                horses - some estimates put the “money wasted” at roughly $370
+                                billion (3). Nonetheless, the CCP has shown time and time again that
+                                it is willing to sacrifice some amount of efficiency and productivity if it
+                                means achieving total market dominance and strengthening Chinese
+                                geopolitical interests through the power of sheer output.
+                            </p>
 
+                            <p>
+                                The problem arises due to this gargantuan amount of supply not
+                                seeing enough demand within the domestic economy. The impacts of
+                                this are twofold- foreign and domestic. Overcapacity prompts firms to
+                                make up for this discrepancy by exporting the excess product to
+                                nations which are then overwhelmed by cheap Chinese goods gutting
+                                a lot of native producers, a phenomenon that has come to be
+                                neologised as the “Second China Shock”. This paranoia boils over into
+                                souring relations between the PRC and other geopolitically important
+                                entities (ASEAN, for example), something which is, for obvious
+                                reasons, undesirable to a nation seeking to change the Western
+                                dominated global system of today. On a domestic level, the
+                                supply-demand mismatch prompts producers to engage in price wars
+                                with each other in order to get to the relatively small amount of
+                                consumer demand present. Now, an $8,000 BYD seems like an
+                                unequivocally good thing to most, but the second order effects here
+                                are that due to lower price signals, EV firms will cut on costs in the
+                                form of wages and future investment/expansion of the firm's
+                                operations. Other than EV’s the sectors currently most affected by
+                                involution are steel and solar panels- again, heavily subsidized by the
+                                central government.
+                            </p>
+
+                            <p>
+                                Policy discourse surrounding involution (and the broader issues of
+                                overproduction, overcapacity and weak consumer demand) typically
+                                concentrate around 2 different approaches-
+                            </p>
+
+                            <ol>
+                                <li>
+                                    Monetary/Fiscal/Directional- These include simply tweaking the
+                                    amount of money put into, say consumer stimulus or
+                                    development banks, issuing orders to firms incentivizing them to
+                                    curb production/cool down on price changes, changing
+                                    behaviour through regulatory codes
+                                </li>
+                                <li>
+                                    Structural- These include changes in the fundamental workings
+                                    of the Chinese economy, be it liberalizing the repressed financial
+                                    sector, inducing an environment more enabling towards the
+                                    private sector, and replacing large swathes of industrial policy
+                                    with price-directed markets.
+                                </li>
+                            </ol>
+                            <p> </p>
+                            <p>
+                                While future policy is yet to be laid out in detail, so far President Xi
+                                seems to be sticking with the former- an economic stimulus package
+                                of roughly 50 billion dollars, amendments to China’s “Anti-unfair
+                                Competition Law”, moral suasion, enforcing preexisting labour law,
+                                and cooperation with industrial associations to change firm behaviour
+                                on a peer to peer basis. To his credit, recent data suggests that
+                                industrial profits have rebounded and production has slumped, easing
+                                some of the deflationary pressures. (4) These changes are not as
+                                heavy-handed as the reforms introduced in 2015-16, when
+                                overinvestment in steel, cement and other commodity markets was
+                                responded to with heavy handed top down mandates on a certain
+                                ceiling on how much a firm could produce. In both cases, the Xi
+                                administration has chosen to stick with the existing framework for
+                                industrial policy, corporate finance and international trade- ignoring
+                                calls for a structural rebalancing away from state driven industrial
+                                policy towards price-driven market allocation of resources, calls which
+                                will likely be ignored as long as the Chinese engine keeps chugging
+                                along at the resilient pace it has been in recent times. The PRC in its
+                                post-Mao days, albeit with a few hiccups, has consistently been able
+                                to balance reform with control - largely due to its ability to demonstrate
+                                self correction in the face of crisis. That ability is once again being put
+                                to the test, as the party talks of “Great Changes Unseen in a Century”.
+                            </p>
+
+                            <div class="references">
+                                <h5>References</h5>
                                 <ol>
-                                    <li>
-                                        Monetary/Fiscal/Directional- These include simply tweaking the 
-                                        amount of money put into, say consumer stimulus or 
-                                        development banks, issuing orders to firms incentivizing them to 
-                                        curb production/cool down on price changes, changing 
-                                        behaviour through regulatory codes 
-                                    </li>
-                                    <li>
-                                        Structural- These include changes in the fundamental workings 
-                                        of the Chinese economy, be it liberalizing the repressed financial 
-                                        sector, inducing an environment more enabling towards the 
-                                        private sector, and replacing large swathes of industrial policy 
-                                        with price-directed markets.
-                                    </li>
+                                    <li><a href="https://www.scmp.com/economy/china-economy/article/3322666/china-reveals-past-ev-subsidies-tesla-state-giants-where-did-money-go"
+                                            target="_blank">SCMP – EV Subsidies Analysis</a></li>
+                                    <li><a href="https://itif.org/publications/2024/07/29/how-innovative-is-china-in-the-electric-vehicle-and-battery-industries/"
+                                            target="_blank">ITIF – Innovation in EV Industry</a></li>
+                                    <li><a href="https://www.imf.org/en/Publications/WP/Issues/2025/08/07/Industrial-Policy-in-China-Quantification-and-Impact-on-Misallocation-568888"
+                                            target="_blank">IMF – Industrial Policy in China</a></li>
+                                    <li><a href="https://www.bloomberg.com/news/articles/2025-09-27/chinese-in"
+                                            target="_blank">Bloomberg – Industrial Profits Data</a></li>
                                 </ol>
-                                <p> </p>
-                                <p>
-                                    While future policy is yet to be laid out in detail, so far President Xi 
-                                    seems to be sticking with the former- an economic stimulus package 
-                                    of roughly 50 billion dollars, amendments to China’s “Anti-unfair 
-                                    Competition Law”, moral suasion, enforcing preexisting labour law, 
-                                    and cooperation with industrial associations to change firm behaviour 
-                                    on a peer to peer basis. To his credit, recent data suggests that 
-                                    industrial profits have rebounded and production has slumped, easing 
-                                    some of the deflationary pressures. (4) These changes are not as 
-                                    heavy-handed as the reforms introduced in 2015-16, when 
-                                    overinvestment in steel, cement and other commodity markets was 
-                                    responded to with heavy handed top down mandates on a certain 
-                                    ceiling on how much a firm could produce. In both cases, the Xi 
-                                    administration has chosen to stick with the existing framework for 
-                                    industrial policy, corporate finance and international trade- ignoring 
-                                    calls for a structural rebalancing away from state driven industrial 
-                                    policy towards price-driven market allocation of resources, calls which 
-                                    will likely be ignored as long as the Chinese engine keeps chugging 
-                                    along at the resilient pace it has been in recent times. The PRC in its 
-                                    post-Mao days, albeit with a few hiccups, has consistently been able 
-                                    to balance reform with control - largely due to its ability to demonstrate 
-                                    self correction in the face of crisis. That ability is once again being put 
-                                    to the test, as the party talks of “Great Changes Unseen in a Century”.
-                                </p>
-                              
-                                <div class="references">
-                                    <h5>References</h5>
-                                    <ol>
-                                        <li><a href="https://www.scmp.com/economy/china-economy/article/3322666/china-reveals-past-ev-subsidies-tesla-state-giants-where-did-money-go" target="_blank">SCMP – EV Subsidies Analysis</a></li>
-                                        <li><a href="https://itif.org/publications/2024/07/29/how-innovative-is-china-in-the-electric-vehicle-and-battery-industries/" target="_blank">ITIF – Innovation in EV Industry</a></li>
-                                        <li><a href="https://www.imf.org/en/Publications/WP/Issues/2025/08/07/Industrial-Policy-in-China-Quantification-and-Impact-on-Misallocation-568888" target="_blank">IMF – Industrial Policy in China</a></li>
-                                        <li><a href="https://www.bloomberg.com/news/articles/2025-09-27/chinese-in" target="_blank">Bloomberg – Industrial Profits Data</a></li>
-                                    </ol>
 
-                                    <h5>Sources on European market prices for EV’s</h5>
-                                    <ul>
-                                        <li><a href="https://www.coxautoinc.com/insights-hub/ev-market-monitor-november-2025/" target="_blank">EV Market Monitor</a></li>
-                                    </ul>
-                                </div>
+                                <h5>Sources on European market prices for EV’s</h5>
+                                <ul>
+                                    <li><a href="https://www.coxautoinc.com/insights-hub/ev-market-monitor-november-2025/"
+                                            target="_blank">EV Market Monitor</a></li>
+                                </ul>
                             </div>
-                            
-                            <a onclick="toggleArticle('china-ev')" class="read-more">Read Full Article →</a>
                         </div>
+
+                        <a onclick="toggleArticle('china-ev')" class="read-more">Read Full Article →</a>
                     </div>
+                </div>
 
 
             </div>
@@ -746,7 +1013,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Ashoka Society</h3>
-                    <p>Advancing understanding of international trade and foreign policy through research, discussion, and engagement.</p>
+                    <p>Advancing understanding of international trade and foreign policy through research, discussion,
+                        and engagement.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -773,7 +1041,7 @@
         function toggleArticle(articleId) {
             const article = document.getElementById(articleId);
             const readMoreLink = article.querySelector('.read-more');
-            
+
             if (article.classList.contains('expanded')) {
                 article.classList.remove('expanded');
                 readMoreLink.textContent = 'Read Full Article →';
@@ -786,4 +1054,5 @@
         }
     </script>
 </body>
+
 </html>

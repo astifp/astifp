@@ -453,6 +453,103 @@
                 gap: 1rem;
             }
         }
+
+        /* Featured Journal Section (Sleek Vertical Bar Layout) */
+        .featured-journal-section {
+            background: #fff;
+            padding: 40px 0;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .journal-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 6px solid #d4af37; /* The vertical gold accent bar */
+            padding: 1.5rem 2.5rem;
+            background: #f8f9fa;
+            border-radius: 0 12px 12px 0;
+            gap: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .journal-bar-content {
+            flex: 2;
+        }
+
+        .journal-bar-title {
+            font-size: 1.6rem;
+            color: #0D366A;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .journal-bar-desc {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .journal-bar-actions {
+            flex: 1;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: #0D366A;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(13, 54, 106, 0.15);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .btn-gold:hover {
+            background: #0a2850;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(13, 54, 106, 0.25);
+        }
+
+        .btn-outline-blue {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: transparent;
+            color: #0D366A;
+            border: 2px solid #0D366A;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .btn-outline-blue:hover {
+            background: rgba(13, 54, 106, 0.05);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .journal-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+            .journal-bar-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
@@ -477,6 +574,24 @@
             </div>
             <h1>Shaping the Future of International Trade & Foreign Policy</h1>
             <p>Join Ashoka University's premier society dedicated to exploring global trade dynamics, diplomatic relations, and foreign policy analysis through rigorous research and thoughtful discourse.</p>
+        </div>
+    </section>
+
+    <!-- Featured Journal Section -->
+    <section class="featured-journal-section" id="journal-issue">
+        <div class="container">
+            <div class="journal-bar">
+                <div class="journal-bar-content">
+                    <h3 class="journal-bar-title">The International Trade Journal — First Edition</h3>
+                    <p class="journal-bar-desc">
+                        Explore our first edition featuring deep-dive research and analysis on global trade dynamics, diplomatic relations, and contemporary foreign policy.
+                    </p>
+                </div>
+                <div class="journal-bar-actions">
+                    <a href="journal-viewer.html" class="btn-gold">Read Online</a>
+                    <a href="The International Trade Journal_Edition 1_June 2026.pdf" download class="btn-outline-blue">Download PDF</a>
+                </div>
+            </div>
         </div>
     </section>
 
